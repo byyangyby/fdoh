@@ -1,0 +1,18 @@
+{
+    "contents" : "---\ntitle: \"FDOH UF Clinic\"\nauthor: \"JB\"\ndate: \"Wednesday, July 01, 2015\"\noutput: pdf_document\n---\n\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.\n\nWhen you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\n```{r}\nlibrary(knitr)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(ggvis)\nopts_chunk$set(comment=NA, fig.width=6, fig.height=6)\n\n```\n\nYou can also embed plots, for example:\n\n```{r, echo=FALSE}\nplot(cars)\n```\n\nNote that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n",
+    "created" : 1435763431044.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "3160204523",
+    "id" : "761357B0",
+    "lastKnownWriteTime" : 1435763576,
+    "path" : "~/fdoh/public/uf_clinic/initial_report.Rmd",
+    "project_path" : "initial_report.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

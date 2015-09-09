@@ -1,0 +1,270 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[center]{titlesec}
+\usepackage{geometry}
+\usepackage{mathtools}
+
+
+
+%
+%\setlength{\columnseprule}{0.4pt}
+%\setlength{\footskip}{20pt}
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[C]{Joe Brew $\bullet$ FDOH-Alachua $\bullet$ Ben Brew}
+\fancyfoot[C]{  $\bullet$ Mosquito Surveillance Report \bullet$  }
+\renewcommand\headrulewidth{1pt}
+\renewcommand\footrulewidth{1pt}
+\pagestyle{fancy}
+
+%
+
+\setlength{\columnsep}{1.5cm}
+%\setlength{\columnseprule}{0.4pt}
+
+%\MakeOuterQuote{"}
+
+
+
+\graphicspath{ {E:/fdoh/public/mosquito/reports/2014-06-18} }
+
+%the next two lines adjust the third, centered section of the exec sum
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\usepackage{Sweave}
+\begin{document}
+\input{mosquitoReport-concordance}
+
+\title{\textbf{Mosquito Surveillance Report}}
+\author{Joe Brew and Ben Brew}
+
+
+\maketitle
+\tableofcontents
+
+\vspace{40mm}
+
+\begin{center}
+\includegraphics[width=2cm]{doh}
+\end{center}
+
+
+
+
+
+\newgeometry{margin=5cm}
+\fancyhfoffset[E,O]{0pt}
+
+
+\vspace*{30mm}
+%------------------------------------------
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+%------------------------------------------
+\hrulefill
+
+
+
+
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.49\textwidth}
+
+
+%------------------------------------------
+\subsection*{Most Recent Collection}
+%------------------------------------------
+
+As predicted, the most recent trap collection (June 10, 2014) saw normal (medium) levels of mosquitoes for this time of year, with geographic dispersal throughout the county.  
+
+\vfill
+\columnbreak
+
+
+
+%------------------------------------------
+\subsection*{Forecast}
+%------------------------------------------
+
+We forecast that mosquito levels will remain at medium-low levels  for the rest of the month, falling by June 30th to approximately 125 mosquitoes per trap (70\% range of 0-285).  
+
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+
+\vspace{2mm}
+%------------------------------------------
+\subsection*{Predictive Model Validation}
+%------------------------------------------
+
+
+\begin{changemargin}{1.5cm}{1.5cm} 
+
+At 193.7 specimens per trap, the most recent collection was very similar to our prediction of 181 specimens per trap (and well within our 70\% confidence interval of 23-339).
+
+\end{changemargin}
+
+\hrulefill
+
+
+\newgeometry{margin=2.5cm}
+\fancyhfoffset[E,O]{0pt}
+%------------------------------------------
+%\section*{Visual Overview}
+%\addcontentsline{toc}{section}{Visual Overview}
+%------------------------------------------
+
+
+%------------------------------------------
+\section*{Visual Overview}
+\addcontentsline{toc}{section}{Visual Overview}
+%------------------------------------------
+\hrulefill
+
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.49\textwidth}
+
+
+
+%------------------------------------------
+\subsection*{Time}
+\addcontentsline{toc}{subsection}{Time}
+%------------------------------------------
+As with previous years, the current mosquito population is at medium-low levels.  
+\begin{center}
+%\begin{figure}
+\includegraphics{mosquitoReport-002}
+%\caption{Yearly comparison}
+%\end{figure}
+\end{center}
+
+
+\vfill
+\columnbreak
+%------------------------------------------
+\subsection*{Space}
+\addcontentsline{toc}{subsection}{Space}
+%------------------------------------------
+Though numbers were highest in the traps in the east (Hawthorne) and south (Micanopy), mosquitoes were largely scattered throughout the county.
+
+\includegraphics{mosquitoReport-003}
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+
+
+%\hrulefill
+\vspace{10mm}
+
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.49\textwidth}
+
+
+\vfill
+\columnbreak
+%------------------------------------------
+\subsection*{Normality}
+\addcontentsline{toc}{subsection}{Normality}
+%------------------------------------------
+The most recent collection was at levels equivalent to approximately the 65th percentile of historical (2008-13) levels.
+
+\includegraphics{mosquitoReport-004}
+
+\vfill
+\columnbreak
+
+
+
+%------------------------------------------
+\subsection*{Disease Vectors}
+\addcontentsline{toc}{subsection}{Disease Vectors}
+%------------------------------------------
+
+Of recently trapped mosquitoes, those species capable of carrying West Nile Virus are at high levels.
+
+\includegraphics{mosquitoReport-005}
+
+\vfill
+\newpage
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+
+%------------------------------------------
+\section*{Forecast}
+\addcontentsline{toc}{section}{Forecast}
+%------------------------------------------
+\hrulefill
+\vspace{5mm}
+
+\noindent We use recursive, quadratic linear regression modelling to forecast the average number of mosquitoes per trap up to 15 days in advance.\footnote{For the first report, our forecast only extends one week in advance, due to delays in modelling and obtaining data.}  
+
+\includegraphics{mosquitoReport-006}
+
+
+\newpage
+
+%------------------------------------------
+\section*{Vectors of Disease by Location}
+\addcontentsline{toc}{section}{Vectors of Disease by Location}
+%------------------------------------------
+\hrulefill
+\vspace{5mm}
+
+\includegraphics{mosquitoReport-007}
+
+
+%------------------------------------------
+\section*{Mosquito Types}
+\addcontentsline{toc}{section}{Mosquito Types}
+%------------------------------------------
+\hrulefill
+\vspace{5mm}
+
+No particular species shows abnormal growth in recent weeks.  
+
+\includegraphics{mosquitoReport-008}
+
+
+\includegraphics{mosquitoReport-009}
+
+
+
+
+% \begin{multicols}{2} 
+% \setkeys{Gin}{width=0.49\textwidth}
+
+% \end{multicols}
+% \setkeys{Gin}{width=1\textwidth}
+% \end{adjustwidth*}
+
+
+
+
+
+\newpage
+%------------------------------------------
+\section*{Details of Predictive Model}
+\addcontentsline{toc}{section}{Details of Predictive Model}
+%------------------------------------------
+\hrulefill
+\vspace{5mm}
+
+Historically, the model has performed well, correctly predicting the late summer spikes in 2012 and 2013.  Given the preference for accuracy at high numbers, the model intentionally includes outlying high observations, thereby weighting them. \\
+
+Having simulated more than 65,000 unique models, our best fit equation (using the sum of least squares approach) was: 
+
+\begin{center} 
+$\hat{Y} = \beta_0+ \beta_1^2 (5.6508)$ + \beta_2 (0.5938)$ 
+\end{center}
+
+\noindent where $\hat{Y}$ is the estimated mean number of mosquitoes per trap, $\beta_0$ is set to 0, $\beta_1$ is the cumulative rainfall in the period 15 to 29 days prior to the date of prediction and $\beta_2$ is the mean number of mosquitoes per trap in the most recent prior trap collection.  \\
+
+Though an original model relied only on rainfall, incorporating the most recent trap predicition saw our R-squared improve from 0.52 to 0.82.  This means that we can now explain over 80\% of the variance in mosquito populations up to 15 days ahead of time.  
+
+
+
+
+
+\end{document}

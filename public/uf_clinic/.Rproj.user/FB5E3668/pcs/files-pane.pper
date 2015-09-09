@@ -1,0 +1,9 @@
+{
+    "path" : "~/fdoh/public/uf_clinic",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+\select@language {english}
+\contentsline {section}{Risk factors for non-return of consent form}{3}
+\contentsline {subsection}{Grade}{3}
+\contentsline {subsection}{Race}{3}
+\contentsline {subsection}{Socioeconomic status}{4}
+\contentsline {section}{2013-14 school evaluation: immunization}{5}
+\contentsline {subsection}{Summary}{5}
+\contentsline {subsection}{Risk factors for non-immunization}{5}
+\contentsline {section}{2013-14 school evaluation: consent form return}{7}
+\contentsline {subsection}{Summary}{7}
+\contentsline {subsection}{Risk factors for consent form loss}{7}
+\contentsline {section}{2013-14 School evaluation: immunization receptivity}{9}
+\contentsline {subsection}{Summary}{9}
+\contentsline {subsection}{Risk factors for immunization aversion}{9}
+\contentsline {section}{Conclusion}{10}
+\contentsline {section}{Details}{11}

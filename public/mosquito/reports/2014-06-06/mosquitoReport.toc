@@ -1,0 +1,12 @@
+\contentsline {section}{Executive Summary}{2}
+\contentsline {subsection}{Most recent collection}{2}
+\contentsline {subsection}{Forecast}{2}
+\contentsline {section}{Visual Overview}{3}
+\contentsline {subsection}{Time}{3}
+\contentsline {subsection}{Space}{3}
+\contentsline {subsection}{Normality}{3}
+\contentsline {subsection}{Disease Vectors}{3}
+\contentsline {section}{Forecast}{4}
+\contentsline {section}{Disease Types By Location}{5}
+\contentsline {section}{Mosquito Types}{6}
+\contentsline {section}{Details of Predictive Model}{8}

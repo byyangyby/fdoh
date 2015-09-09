@@ -1,0 +1,251 @@
+<html xmlns:x='urn:schemas-microsoft-com:office:excel'><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Data sheet</x:Name><x:Title>County Data</x:Title><x:WorksheetOptions><x:Print><x:ValidPrinterInfo/></x:Print></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><style> .text { mso-number-format:\@; } table th { background-color: #006699; } .Grid TH { color: White; background-color: #006699; padding: 3px; text-align: center;border: solid 1px gray;} .Grid TD {text-align: center;}</style><div>
+	<table class="Grid" cellspacing="0" rules="all" border="1" id="gvCntyGrid" style="border-collapse:collapse;">
+		<tr>
+			<th colspan="5">Bacterial STDs 15-19, Single Year Rates</th>
+		</tr><tr>
+			<th></th><th colspan="2">Alachua</th><th colspan="2">Florida</th>
+		</tr><tr>
+			<th scope="col">Year</th><th scope="col">Count</th><th scope="col">Rate</th><th scope="col">Count</th><th scope="col">Rate</th>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl04_lbl1">1994</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl04_lbl2">443</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl04_lbl3">2592.2</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl04_lbl5">16,275</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl04_lbl6">1971.0</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl05_lbl1">1995</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl05_lbl2">320</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl05_lbl3">1766.7</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl05_lbl5">15,120</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl05_lbl6">1771.3</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl06_lbl1">1996</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl06_lbl2">319</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl06_lbl3">1697.3</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl06_lbl5">16,454</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl06_lbl6">1854.4</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl07_lbl1">1997</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl07_lbl2">273</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl07_lbl3">1392.4</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl07_lbl5">16,614</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl07_lbl6">1800.8</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl08_lbl1">1998</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl08_lbl2">314</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl08_lbl3">1537.7</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl08_lbl5">15,205</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl08_lbl6">1589.9</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl09_lbl1">1999</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl09_lbl2">462</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl09_lbl3">2122.6</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl09_lbl5">18,754</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl09_lbl6">1896.0</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl10_lbl1">2000</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl10_lbl2">605</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl10_lbl3">2674.9</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl10_lbl5">19,269</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl10_lbl6">1884.1</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl11_lbl1">2001</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl11_lbl2">497</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl11_lbl3">2108.5</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl11_lbl5">19,841</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl11_lbl6">1879.2</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl12_lbl1">2002</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl12_lbl2">451</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl12_lbl3">1896.2</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl12_lbl5">20,778</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl12_lbl6">1934.3</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl13_lbl1">2003</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl13_lbl2">534</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl13_lbl3">2202.2</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl13_lbl5">20,175</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl13_lbl6">1830.2</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl14_lbl1">2004</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl14_lbl2">567</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl14_lbl3">2599.1</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl14_lbl5">19,915</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl14_lbl6">1732.3</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl15_lbl1">2005</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl15_lbl2">644</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl15_lbl3">2856.4</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl15_lbl5">20,651</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl15_lbl6">1761.1</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl16_lbl1">2006</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl16_lbl2">729</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl16_lbl3">3213.9</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl16_lbl5">24,031</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl16_lbl6">2017.9</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl17_lbl1">2007</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl17_lbl2">782</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl17_lbl3">3436.6</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl17_lbl5">26,124</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl17_lbl6">2168.1</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl18_lbl1">2008</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl18_lbl2">756</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl18_lbl3">3356.7</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl18_lbl5">30,695</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl18_lbl6">2544.4</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl19_lbl1">2009</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl19_lbl2">741</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl19_lbl3">3312.2</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl19_lbl5">30,654</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl19_lbl6">2542.4</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl20_lbl1">2010</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl20_lbl2">749</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl20_lbl3">3174.7</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl20_lbl5">30,248</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl20_lbl6">2484.3</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl21_lbl1">2011</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl21_lbl2">722</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl21_lbl3">3110.2</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl21_lbl5">28,918</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl21_lbl6">2394.9</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl22_lbl1">2012</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl22_lbl2">706</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl22_lbl3">3030.6</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl22_lbl5">27,052</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl22_lbl6">2251.2</span>
+                                </td>
+		</tr><tr>
+			<td>
+                                    <span id="gvCntyGrid_ctl23_lbl1">2013</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl23_lbl2">576</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl23_lbl3">2504.6</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl23_lbl5">25,250</span>
+                                </td><td>
+                                    <span id="gvCntyGrid_ctl23_lbl6">2103.7</span>
+                                </td>
+		</tr>
+	</table>
+</div></body></html>

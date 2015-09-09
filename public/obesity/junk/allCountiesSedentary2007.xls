@@ -1,0 +1,417 @@
+<html xmlns:x='urn:schemas-microsoft-com:office:excel'><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Data sheet</x:Name><x:Title>County Data</x:Title><x:WorksheetOptions><x:Print><x:ValidPrinterInfo/></x:Print></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><style> .text { mso-number-format:\@; } table th { background-color: #006699; } .Grid TH { color: White; background-color: #006699; padding: 3px; text-align: center;border: solid 1px gray;} .Grid TD {text-align: center;}</style><div>
+	<table class="Grid" cellspacing="0" rules="all" border="1" id="gvFLGrid" style="border-collapse:collapse;">
+		<tr>
+			<th colspan="2">Adults who are sedentary, Overall, 2007</th>
+		</tr><tr>
+			<th scope="col" style="width:65%;">County</th><th scope="col" style="width:35%;">Percent (%)</th>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl03_lbl1">Alachua</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl03_lbl12">17.2</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl04_lbl1">Baker</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl04_lbl12">28.6</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl05_lbl1">Bay</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl05_lbl12">29.1</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl06_lbl1">Bradford</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl06_lbl12">29.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl07_lbl1">Brevard</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl07_lbl12">23.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl08_lbl1">Broward</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl08_lbl12">26.0</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl09_lbl1">Calhoun</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl09_lbl12">36.3</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl10_lbl1">Charlotte</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl10_lbl12">22.5</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl11_lbl1">Citrus</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl11_lbl12">26.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl12_lbl1">Clay</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl12_lbl12">24.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl13_lbl1">Collier</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl13_lbl12">23.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl14_lbl1">Columbia</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl14_lbl12">24.0</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl15_lbl1">DeSoto</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl15_lbl12">30.2</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl16_lbl1">Dixie</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl16_lbl12">27.7</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl17_lbl1">Duval</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl17_lbl12">23.5</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl18_lbl1">Escambia</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl18_lbl12">24.0</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl19_lbl1">Flagler</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl19_lbl12">25.3</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl20_lbl1">Franklin</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl20_lbl12">33.7</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl21_lbl1">Gadsden</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl21_lbl12">32.5</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl22_lbl1">Gilchrist</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl22_lbl12">32.8</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl23_lbl1">Glades</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl23_lbl12">35.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl24_lbl1">Gulf</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl24_lbl12">35.2</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl25_lbl1">Hamilton</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl25_lbl12">29.1</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl26_lbl1">Hardee</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl26_lbl12">45.5</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl27_lbl1">Hendry</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl27_lbl12">38.1</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl28_lbl1">Hernando</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl28_lbl12">25.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl29_lbl1">Highlands</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl29_lbl12">31.2</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl30_lbl1">Hillsborough</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl30_lbl12">25.3</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl31_lbl1">Holmes</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl31_lbl12">38.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl32_lbl1">Indian River</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl32_lbl12">24.2</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl33_lbl1">Jackson</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl33_lbl12">28.2</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl34_lbl1">Jefferson</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl34_lbl12">26.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl35_lbl1">Lafayette</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl35_lbl12">30.6</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl36_lbl1">Lake</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl36_lbl12">25.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl37_lbl1">Lee</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl37_lbl12">25.5</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl38_lbl1">Leon</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl38_lbl12">16.8</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl39_lbl1">Levy</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl39_lbl12">30.0</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl40_lbl1">Liberty</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl40_lbl12">26.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl41_lbl1">Madison</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl41_lbl12">30.8</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl42_lbl1">Manatee</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl42_lbl12">24.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl43_lbl1">Marion</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl43_lbl12">29.0</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl44_lbl1">Martin</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl44_lbl12">20.6</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl45_lbl1">Miami-Dade</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl45_lbl12">35.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl46_lbl1">Monroe</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl46_lbl12">27.1</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl47_lbl1">Nassau</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl47_lbl12">25.8</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl48_lbl1">Okaloosa</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl48_lbl12">21.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl49_lbl1">Okeechobee</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl49_lbl12">35.3</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl50_lbl1">Orange</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl50_lbl12">23.1</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl51_lbl1">Osceola</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl51_lbl12">26.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl52_lbl1">Palm Beach</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl52_lbl12">20.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl53_lbl1">Pasco</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl53_lbl12">22.3</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl54_lbl1">Pinellas</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl54_lbl12">22.1</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl55_lbl1">Polk</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl55_lbl12">25.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl56_lbl1">Putnam</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl56_lbl12">30.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl57_lbl1">Santa Rosa</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl57_lbl12">19.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl58_lbl1">Sarasota</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl58_lbl12">19.3</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl59_lbl1">Seminole</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl59_lbl12">19.1</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl60_lbl1">St. Johns</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl60_lbl12">18.0</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl61_lbl1">St. Lucie</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl61_lbl12">24.8</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl62_lbl1">State Total</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl62_lbl12">25.4</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl63_lbl1">Sumter</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl63_lbl12">29.6</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl64_lbl1">Suwannee</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl64_lbl12">25.0</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl65_lbl1">Taylor</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl65_lbl12">31.3</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl66_lbl1">Union</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl66_lbl12">32.0</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl67_lbl1">Volusia</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl67_lbl12">21.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl68_lbl1">Wakulla</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl68_lbl12">23.9</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl69_lbl1">Walton</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl69_lbl12">28.1</span>
+                                </td>
+		</tr><tr>
+			<td align="left">
+                                    <span id="gvFLGrid_ctl70_lbl1">Washington</span>
+                                </td><td align="right">
+                                    <span id="gvFLGrid_ctl70_lbl12">28.4</span>
+                                </td>
+		</tr>
+	</table>
+</div></body></html>

@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+
+\newgeometry{margin=1.5cm}
+
+\title{Bacterial STD Rates Among 15-19 Year-Olds }
+\author{Florida Department of Health - Alachua County}
+\begin{document}
+\maketitle
+\SweaveOpts{concordance=TRUE, fig=TRUE, echo=FALSE, results=hide}
+
+
+<<fig=FALSE,echo=FALSE, results=hide>>=
+library(RColorBrewer)
+library(xtable)
+library(splines)
+setwd("C:/Users/BrewJR/Documents/workingdirectory/census")
+load("~/workingdirectory/census/bacstd1519.RData")
+@
+
+Alachua ranks 51st in the State for Bacterial STD rates among 15-19 year-olds with a rate of 3,031 per 100,000 (2012 Florida Charts data).
+\begin{center}
+<<height=10, width=15>>=
+barplot(test$Rate, col=mycols, main="Bacterial STD rates among 15-19 year olds", cex.main=2, cex.lab=1.2,
+                     xlab="County", ylab="Rate per 100,000", border=TRUE)
+axis(side=1, at=mybarplot[,1], labels=test$County, las=3, cex.axis=0.5,
+     tick=FALSE, line=-1)
+legend(x="topleft", fill=adjustcolor(c("blue","red"), alpha.f=0.5), cex=2,
+       legend=c("Florida (2251 per 100,000)", 
+                "Alachua (3031 per 100,00, 51st place)"), 
+       border=FALSE, bty="n")
+@
+\end{center}
+Alachua's bacterial STD rate among 15-19 year-olds peaked in 2007 at 3437 per 100,000.  Florida peaked a year later at 2544.  Since then, both rates have gone down slightly.
+\begin{center}
+<<height=5, width=10>>=
+plot(myts$Year, myts$alachuaRate, type="n", xlab="Year", 
+     ylab="Rate per 100,000", main="Bacterial STD Rate Among 15-19 Year-Olds")
+xspline(myts$Year, myts$alachuaRate, border=adjustcolor("red", alpha.f=0.5), 
+        shape=0.6, lwd=3)
+xspline(myts$Year, myts$floridaRate, border=adjustcolor("blue", alpha.f=0.5), 
+        shape=0.6, lwd=3)
+legend(x="topleft", lty=1, col=adjustcolor(c("red","blue"), alpha.f=0.5),
+       legend=c("Alachua", "Florida"))
+@
+\newpage
+\section*{Table: Bacterial STD Rates among 15-19 Year-Olds in Florida}
+
+
+
+
+
+
+\begin{table}[ht]
+\begin{minipage}[b]{0.45\linewidth}\centering
+\begin{tabular}{rllr}
+  \hline
+ & County & Count & Rate \\ 
+  \hline
+1 & Lafayette & 2 & 361.00 \\ 
+  2 & Hernando & 101 & 1045.20 \\ 
+  3 & St. Johns & 142 & 1085.10 \\ 
+  4 & Martin & 85 & 1111.30 \\ 
+  5 & Hardee & 27 & 1259.90 \\ 
+  6 & Pasco & 357 & 1300.40 \\ 
+  7 & Monroe & 45 & 1435.90 \\ 
+  8 & Highlands & 71 & 1449.00 \\ 
+  9 & Collier & 264 & 1504.90 \\ 
+  10 & Santa Rosa & 161 & 1515.20 \\ 
+  11 & Nassau & 69 & 1522.50 \\ 
+  12 & Walton & 47 & 1553.20 \\ 
+  13 & DeSoto & 36 & 1555.10 \\ 
+  14 & Palm Beach & 1,244 & 1590.70 \\ 
+  15 & Suwannee & 42 & 1590.90 \\ 
+  16 & Holmes & 20 & 1610.30 \\ 
+  17 & Seminole & 506 & 1667.50 \\ 
+  18 & Osceola & 361 & 1694.50 \\ 
+  19 & Charlotte & 122 & 1766.10 \\ 
+  20 & Clay & 259 & 1802.70 \\ 
+  21 & Sarasota & 332 & 1859.50 \\ 
+  22 & Gilchrist & 25 & 1864.30 \\ 
+  23 & Washington & 28 & 1870.40 \\ 
+  24 & Lake & 317 & 1880.50 \\ 
+  25 & Miami-Dade & 3,101 & 1882.50 \\ 
+  26 & Citrus & 133 & 2007.20 \\ 
+  27 & St. Lucie & 346 & 2017.10 \\ 
+  28 & Broward & 2,299 & 2054.60 \\ 
+  29 & Polk & 822 & 2077.10 \\ 
+  30 & Indian River & 159 & 2083.10 \\ 
+  31 & Brevard & 683 & 2118.90 \\ 
+  32 & Madison & 27 & 2131.00 \\ 
+  33 & Calhoun & 18 & 2135.20 \\ 
+  34 & Bay & 227 & 2149.80 \\ 
+
+
+   \hline
+\end{tabular}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\begin{tabular}{rllr}
+  \hline
+ & County & Count & Rate \\ 
+  \hline
+  35 & Okeechobee & 62 & 2215.90 \\ 
+36 & Hendry & 66 & 2220.70 \\ 
+  37 & Volusia & 661 & 2233.60 \\ 
+  38 & Lee & 801 & 2280.40 \\ 
+  39 & Okaloosa & 265 & 2283.70 \\ 
+  40 & Liberty & 12 & 2330.10 \\ 
+  41 & Wakulla & 45 & 2407.70 \\ 
+  42 & Orange & 2,162 & 2454.90 \\ 
+  43 & Levy & 63 & 2600.10 \\ 
+  44 & Flagler & 145 & 2621.10 \\ 
+  45 & Baker & 47 & 2647.90 \\ 
+  46 & Marion & 480 & 2653.50 \\ 
+  47 & Manatee & 491 & 2686.00 \\ 
+  48 & Putnam & 125 & 2746.60 \\ 
+  49 & Glades & 19 & 2749.60 \\ 
+  50 & Pinellas & 1,407 & 2908.30 \\ 
+  51 & Alachua & 706 & 3030.60 \\ 
+  52 & Leon & 850 & 3092.80 \\ 
+  53 & Hillsborough & 2,775 & 3150.90 \\ 
+  54 & Duval & 1,851 & 3236.40 \\ 
+  55 & Sumter & 82 & 3237.30 \\ 
+  56 & Taylor & 39 & 3293.90 \\ 
+  57 & Hamilton & 31 & 3294.40 \\ 
+  58 & Dixie & 28 & 3341.30 \\ 
+  59 & Jefferson & 25 & 3472.20 \\ 
+  60 & Escambia & 750 & 3479.80 \\ 
+  61 & Columbia & 151 & 3503.50 \\ 
+  62 & Jackson & 107 & 3634.50 \\ 
+  63 & Franklin & 19 & 3769.80 \\ 
+  64 & Bradford & 62 & 4180.70 \\ 
+  65 & Gulf & 32 & 4301.10 \\ 
+  66 & Union & 46 & 5145.40 \\ 
+  67 & Gadsden & 169 & 5642.70 \\ 
+     \hline
+\end{tabular}
+\end{minipage}
+\end{table}
+
+
+
+\end{center}
+\end{document}

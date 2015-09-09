@@ -1,0 +1,124 @@
+---
+title: "FDOH UF Clinic Evaluation Update"
+author: "Joe Brew"
+date: "1 July 2015"
+output: rmarkdown::tufte_handout
+---
+
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, comment = NA}
+#####
+# LIBRARIES
+#####
+library(knitr)
+library(dplyr)
+library(ggplot2)
+opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, comment = NA)
+#####
+# DIRECTORY INFO
+#####
+if(Sys.info()['sysname'] == 'Windows'){
+  code_dir <- 'C:/Users/BrewJR/Documents/fdoh/public/uf_clinic/'
+  data_dir <- 'E:/fdoh/private/uf_clinic/'
+} else {
+  code_dir <- '/home/joebrew/Documents/fdoh/public/uf_clinic/'
+  data_dir <- '/media/joebrew/JB/fdoh/private/uf_clinic/'
+}
+#####
+# READ IN
+#####
+setwd(data_dir)
+load('checkpoint.RData')
+
+```
+
+
+# Summary
+
+\newthought{I have gathered}, cleaned and organized data from the following two sources:   
+
+1. UF's Student Health Care Center Clinic \marginnote{(SHCC)}   
+2. Florida Department of Health \marginnote{(FDOH)} in Alachua's STI testing program embedded at the UF SHCCC 
+
+
+\noindent This document provides a summary of the data, as well as next steps in the evaluation effort.
+
+# Data summary
+
+## FDOH  
+
+```{r, fig.margin = TRUE}
+g <- ggplot(data = fdoh)
+g + geom_density(aes(date), fill = 'blue', alpha = 0.5) +
+  theme_bw() +
+  xlab('Date') +
+  ylab('Density') +
+  ggtitle('FDOH-administered tests at UF SHCC') +
+  theme(text = element_text(size = 8),
+        axis.text.x = element_text(angle = 90, size = 4))
+
+  
+```
+
+The FDOH testing data ranges from `r format(min(fdoh$date), '%B %d, %Y')` through `r format(max(fdoh$date), '%B %d, %Y')`.  For the sake of this analysis, test results are ignored, and we insead concentrate exclusively on the number of tests over time (as a proxy measure for general test "availability", the assumption being that the more "available" testing is perceived to be, the more tests will be performed).
+
+
+A\marginnote{(The likely average daily number of tests is higher, as this does not take into account holidays and university vacations.)} total of `r nrow(fdoh)` tests were performed, and the testing rate has remained stable over the last few years (after adjustment for expected academic seasonality), at an average of `r round(nrow(fdoh) /  as.numeric(max(fdoh$date) - min(fdoh$date))* (7/5), digits = 2)`.
+
+
+
+## UF  
+
+The UF dataset goes back further in time, ranging from December 2005 through March 2015.  It includes _all_ diagnoses (not just STI's).  After dipping to a low in 2010, the rate at which the SHCC sees patients appears to have increased steadily since then.
+
+```{r, fig.margin = TRUE}
+uf$date <- as.Date(paste0(uf$year, '-',
+                             uf$month, '-01'))
+g <- ggplot(data = uf)
+g + geom_density(aes(date), fill = 'blue', alpha = 0.5) +
+  theme_bw() +
+  xlab('Date') +
+  ylab('Density') +
+  ggtitle('FDOH-administered tests at UF SHCC') +
+  theme(text = element_text(size = 8),
+        axis.text.x = element_text(angle = 90, size = 4))
+
+```
+
+
+## Other data
+
+To make our analysis meaningful, we'll need to calculate both the cost of those `r nrow(fdoh)` tests, as well as the opportunity costs of having spent those dollars in other venues.  We'll also require statewide STI trends and cost data from the UF end.
+
+\newpage
+
+# Next steps
+
+## Done  
+
+I've contacted Randy Jarmon regarding the necessary financial data.  Following the delivery of financial data from Randy Jarmon, I'll 
+
+
+## To do
+
+I'll get back in touch with Guy Nicolette regarding the exact cost of STI testing for the UF SHCC, and will follow up with Randy regarding FDOH cost data.   
+
+
+\noindent I'll gather and clean STI and population data for Florida from Florida charts.     
+
+\noindent Once all the data is in place, I'll conduct a cost-utility and cost-effectiveness analysis.  The final product will be an internal-facing report, for distribution at administration's discretion, and an optional external-facing article.  
+
+```{r, fig = TRUE}
+ts$date <- as.Date(paste0(ts$year, '-',
+                             ts$month, '-01'))
+g <- ggplot(data = ts) 
+g + geom_smooth(aes(x = date, y = sti)) +
+  theme_bw() +
+  xlab('Year') +
+  ylab('STI diagnoses / tests') +
+  ggtitle('STI diagnoses at SHCC (blue = diagnoses; orange = tests)') +
+  theme(text = element_text(size = 8),
+        axis.text.x = element_text(angle = 90, size = 4)) +
+  geom_bar(aes(x = date, y = n_tests), stat = 'identity', col = 'orange', fill = 'orange', alpha = 0.5)
+```
+

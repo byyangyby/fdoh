@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\newgeometry{margin=0.5cm}
+
+\title{Mosquito species this summer}
+\begin{document}
+\SweaveOpts{concordance=TRUE, fig=TRUE, echo=FALSE, results=hide}
+
+<<fig=FALSE,echo=FALSE, results=hide>>=
+library(SemiPar)
+library(RColorBrewer)
+setwd("C:/Users/BrewJR/Documents/workingdirectory/mosquito")
+load("~/workingdirectory/mosquito/mosq28oct13.RData")
+@
+\begin{center}
+\subsection*{What kind of mosquitos were most prevalent this summer?}
+\end{center}
+The recent (and very small) spike in Aedes albopictus mosquitoes (which are capable of carrying Dengue) prompted a more general conversation about which mosquito genus/species were most prevalent this summer, and which accounted for the early August and mid-September spikes.  What follows are graphical and tabular overviews of that information.
+\begin{center}
+<<height=6, width=10>>=
+plot(dennis2$date, dennis2[,27], type="n", xlab="Date", ylab="Mosquitoes",
+     main="Mosquito types this summer")
+for (i in 2:34){
+  xspline(dennis2$date, dennis2[,i], shape=0.5, border=adjustcolor(
+    zapcols[i], alpha.f=0.5),
+          lwd=3)}
+legend(x="topleft", lwd=2, col=zapcols[2:34],
+       legend=colnames(dennis2)[2:34],
+       cex=0.5, y.intersp=0.8)
+
+text(x=max(dennis2$date), y=1000, labels="M. dyari", cex=0.5)
+text(x=dennis2$date[14]+5, y=2500, labels="M. dyari", cex=0.5)
+
+text(x=max(dennis2$date-15), y=2500, labels="Culex erraticus", cex=0.5)
+text(x=max(dennis2$date-75), y=3300, labels="C. nigripalpus", cex=0.5)
+text(x=max(dennis2$date-75), y=2400, labels="P. colubmiae", cex=0.5)
+text(x=max(dennis2$date-70), y=2600, labels="M. dyari", cex=0.5)
+
+text(x=max(dennis2$date), y=dennis2[which(dennis2$date==max(dennis2$date)),2:35],
+     labels=names(dennis2[which(dennis2$date==max(dennis2$date)),2:35]),
+     cex=0.1)
+text(x=min(dennis2$date), y=dennis2[which(dennis2$date==min(dennis2$date)),2:35],
+     labels=names(dennis2[which(dennis2$date==min(dennis2$date)),2:35]),
+     cex=0.1)
+text(x=dennis2$date[11], y=dennis2[which(dennis2$date==dennis2$date[11]),2:35],
+     labels=names(dennis2[which(dennis2$date==dennis2$date[11]),2:35]),
+     cex=0.1)
+@
+\end{center}
+\subsection*{Are we really doing that poorly?}
+Alachua has more 15-24 year-olds (as a share of total county population) than any other county in Florida.\\
+15-24 year-olds are (by far) the age group with the highest STD rate.  See below charts:
+\begin{center}
+<<height=3, width=8>>=
+par(mfrow=c(1,2))
+fl2 <- fl[order(fl$x1524per),]
+barplot(fl2$x1524per, names.arg=fl2$county, las=2, cex.names=0.2, col=mycols3,
+        main="Percent of population 15-24 years old", xlab="County", ylab="Percentage", border=FALSE)
+barplot(stdvec3$rate, names.arg=stdvec3$agerec, col=mycols4, border=FALSE,
+        main="STD Rates in Florida by age group", xlab="Age", ylab="Rate per 100,000")
+
+@
+\end{center}
+\subsection*{15-24 year-olds skew the rate}
+Alachua has the largest percentage of those who are most likely to get STDs (15-24 year-olds). Leon is a close second (nearly as many 15-24 year-olds).
+
+\subsection*{Age Standardization}
+
+We can measure the exact skewing effect of our demographic profile via age "standardization."  This means calculating the supposed total STD rate if our population exactly resembled Florida's (in terms of age).  \\
+
+Standardizing for age brings our STD rate down to 599.9 per 100,000, much closer to the State STD rate of 525 per 100,000.  What does this mean?  If our population had the same age profile as Florida's, we could expect to have an STD rate much more similar to Florida's.
+
+\begin{center}
+<<height=2.5, width=8>>=
+par(mfrow=c(1,2))
+hist(std$adjper, breaks=25, col=mycols2, main="Age-Standardized STD Rate", xlab="STD rate per 100,000", ylab="Counties", border=FALSE)
+abline(v=std$adjper[which(std$County=="ALACHUA")], col=adjustcolor("dodgerblue3", alpha.f=0.6), lwd=5)
+text(x=std$adjper[which(std$County=="ALACHUA")], y=7, labels="Alachua", pos=4, col="grey40")
+
+std4 <- std[order(std$adjper) , ]
+barplot(std4$adjper, names.arg=std4$County, las=2, cex.names=0.2,border=FALSE, col=mycols, 
+        main="Age-Standardized STD Rate", xlab="County", ylab="Rate")
+
+abline(v=mybarplot[49,1], col=adjustcolor("dodgerblue3", alpha.f=0.6), lwd=4)
+
+@
+\end{center}
+
+
+
+
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\title{Mosquito Surveillance Report}
+\subtitle{28 October 2013}
+\author{Florida Department of Health - Alachua County - Disease Control Unit}
+\begin{document}
+\SweaveOpts{concordance=TRUE, fig=TRUE, echo=FALSE, results=hide}
+\maketitle
+\begin{center}
+Joe Brew\\
+Joseph.Brew@FLHealth.gov\\
+\end{center}
+\newgeometry{margin=1.5cm}
+
+<<fig=FALSE,echo=FALSE, results=hide>>=
+library(SemiPar)
+library(RColorBrewer)
+setwd("C:/Users/BrewJR/Documents/workingdirectory/mosquito")
+load("~/workingdirectory/mosquito/mosq28oct13.RData")
+@
+\section*{Overview}
+The mosquito season is coming to an end and numbers are low.\footnotetext[1]{footnotetexthereblablablaba.} 
+\begin{center}
+<<height=3, width=9>>=
+par(mfrow=c(2,1))
+# OVERALL
+plot(trap$dayofyear[which(trap$year==2012)], trap$vector[which(trap$year==2012)], type="n", xaxt="n",
+     xlab="Month", ylab="Average vectors per trap", ylim=c(0,1100))
+axis(side=1, at=trap$dayofyear[which(trap$year==2012)], 
+     labels=format(as.Date(trap$dayofyear[which(trap$year==2012)],
+                           format="%j"),format="%b\n%d"), cex.axis=0.2)
+
+xspline(trap$dayofyear[which(trap$year==2013)], trap$vector[which(trap$year==2013)], 
+        border=yearcols[1], shape=0.5, lwd=3)
+xspline(trap$dayofyear[which(trap$year==2012)], trap$vector[which(trap$year==2012)], 
+        border=yearcols[2], shape=0.5)
+xspline(trap$dayofyear[which(trap$year==2011)], trap$vector[which(trap$year==2011)], 
+        border=yearcols[3], shape=0.5)
+xspline(trap$dayofyear[which(trap$year==2010)], trap$vector[which(trap$year==2010)], 
+        border=yearcols[4], shape=0.5)
+xspline(trap$dayofyear[which(trap$year==2009)], trap$vector[which(trap$year==2009)], 
+        border=yearcols[5], shape=0.5)
+xspline(trap$dayofyear[which(trap$year==2008)], trap$vector[which(trap$year==2008)], 
+        border=yearcols[6], shape=0.5)
+        
+abline(v=max(trap$dayofyear[which(trap$year==2013)]), lty=1, lwd=3, col=adjustcolor("grey", alpha.f=0.4))
+abline(h=max(trap$vector[which(trap$dayofyear==max(trap$dayofyear[which(trap$year==2013)]))]), lty=1, lwd=3, col=adjustcolor("grey", alpha.f=0.4))
+
+legend(x="topright", lty=1, col=yearcols[1:6], legend=c("2013", "2012", "2011", "2010", "2009", "2008"),
+       border=FALSE, bty="n", cex=0.6, lwd=c(3,1,1,1,1,1))
+
+
+# For website 
+plot(trap$dayofyear[which(trap$year==2013)], trap$vector[which(trap$year==2013)], type="n", xaxt="n",
+     xlab="Date", ylab="Mosquitoes", ylim=c(0,650),
+     main="Average vector mosquitoes per trap, 2013")
+axis(side=1, at=trap$dayofyear[which(trap$year==2013)], 
+     labels=format(as.Date(trap$dayofyear[which(trap$year==2013)],
+                           format="%j"),format="%b\n%d"), cex.axis=0.4)
+
+xspline(trap$dayofyear[which(trap$year==2013)], trap$vector[which(trap$year==2013)], 
+        border=adjustcolor(yearcols[1], alpha.f=0.6), shape=0, lwd=3)
+points(trap$dayofyear[which(trap$year==2013)], trap$vector[which(trap$year==2013)],
+        pch=16, col="grey")
+points(trap$dayofyear[which(trap$year==2013)], trap$vector[which(trap$year==2013)],
+       pch=21, col=adjustcolor("red", alpha.f=0.6))
+
+@
+\end{center}
+\section*{other sections}
+bla bla bla
+
+
+\end{document}

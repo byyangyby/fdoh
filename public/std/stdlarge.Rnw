@@ -1,0 +1,235 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\title{Age-standardized STD rates}
+\author{Florida Department of Health - Alachua County - Disease Control Unit}
+\begin{document}
+\SweaveOpts{concordance=TRUE, fig=TRUE, echo=FALSE, results=hide}
+\maketitle
+\begin{center}
+Joe Brew\\
+Joseph.Brew@FLHealth.gov\\
+\end{center}
+\newgeometry{margin=1.5cm}
+
+<<fig=FALSE,echo=FALSE, results=hide>>=
+library(SemiPar)
+library(RColorBrewer)
+setwd("C:/Users/BrewJR/Documents/workingdirectory/census")
+load("~/workingdirectory/census/std.RData")
+@
+\section*{STDs in Alachua County}
+Alachua County's STD rate (862 per 100,000) is 64 percent higher than the Florida composite rate (525 per 100,000), placing us at 4th worst in the State.\footnotetext[1]{The tabular figures and charts in this report reflect slightly different figures.  That is because they were calculated via age groups instead of as a composite (a necessary step for age adjustment); discrepancies, therefore, come from rounding approximations for individual age groups. These differences are minor (+/- 3-5 percent).}  Given our population size, this means that we have 834 more STD cases than we would have if our rate were identical to Florida's.  Compared to Charlotte County (the state leader with a rate of 213 per 100,000), we have an excess 1600 STD cases per year. 
+\begin{center}
+<<height=6, width=10>>=
+hist(std$total, breaks=25, col=mycols2, main="STD Rate", xlab="STD rate per 100,000", ylab="Counties", border=FALSE)
+abline(v=std$total[which(std$County=="ALACHUA")], col=adjustcolor("dodgerblue3", alpha.f=0.6), lwd=5)
+text(x=std$total[which(std$County=="ALACHUA")], y=7, labels="Alachua", pos=4, col="grey40")
+@
+<<height=6, width=10>>=
+std2 <- std[order(std$total) , ]
+barplot(std2$total, names.arg=std2$County, las=2, cex.names=0.5, col=mycols, 
+        main="STD Rate", xlab="County", ylab="Rate", border=FALSE)
+abline(v=mybarplot[64,1], col=adjustcolor("dodgerblue3", alpha.f=0.6), lwd=4)
+
+@
+\newpage
+\end{center}
+\section*{Are we really doing that poorly?}
+It has been suggested that part of our poor STD rate might be attributable to our county's lopsided demographic profile.  The logic for this suggestion is as follows:\begin{enumerate}
+  \item Alachua has lots of 15-24 year-olds.
+  \item 15-24 year-olds have lots of STDs.\\
+\end{enumerate}
+These assumptions are correct.\\ 
+
+Alachua has more 15-24 year-olds (as a share of total county population) than any other county in Florida.\\
+15-24 year-olds are (by far) the age group with the highest STD rate.  See below charts:
+\begin{center}
+<<height=6, width=10>>=
+fl2 <- fl[order(fl$x1524per),]
+barplot(fl2$x1524per, names.arg=fl2$county, las=2, cex.names=0.5, col=mycols3,
+        main="Percent of population 15-24 years old", xlab="County", ylab="Percentage", border=FALSE)
+@
+<<height=6, width=10>>=
+barplot(stdvec3$rate, names.arg=stdvec3$agerec, col=mycols4, border=FALSE,
+        main="STD Rates in Florida by age group", xlab="Age", ylab="Rate per 100,000")
+
+@
+\end{center}
+\newpage
+\subsection*{15-24 year-olds skew the rate}
+Alachua has the largest percentage of those who are most likely to get STDs (15-24 year-olds). Leon is a close second (nearly as many 15-24 year-olds). \\
+
+Having such a large population of 15-24 year-olds can skew the STD rates of counties like Leon and Alachua in two ways:\begin{enumerate}
+  \item It inflates the rate directly (since those most likely to get STDs are also the most populous group).
+  \item It inflates the rate indirectly through contagion (since 15-24 year-olds plausibly infect those in slightly older age groups, who in turn infect those in slightly older age groups, etc.).
+\end{enumerate}
+\begin{center}
+<<height=6, width=10>>=
+plot(fl$x1524per, std$total, type="n",
+     xlab="Percentage of residents aged 15-24",
+     ylab="Total STD Rate per 100,000",
+     ylim=c(0,1800), main="STD Rates in Florida")
+abline(lm(std$total ~ fl$x1524per), col=adjustcolor("black", alpha.f=0.2), lwd=3)
+points(fl$x1524per, std$total, pch=16, col=mycols[floor(std$total/25)], cex=
+         round(std$std1524per/2000))
+
+text(x=fl$x1524per[which(fl$county=="ALACHUA")],
+     y=std$total[which(fl$county=="ALACHUA")],
+     labels=std$County[which(fl$county=="ALACHUA")], cex=0.5, pos=2)
+text(x=fl$x1524per[which(fl$county=="LEON")],
+     y=std$total[which(fl$county=="LEON")],
+     labels=std$County[which(fl$county=="LEON")], cex=0.5, pos=2)
+text(x=fl$x1524per[which(fl$county=="HAMILTON")],
+     y=std$total[which(fl$county=="HAMILTON")],
+     labels=std$County[which(fl$county=="HAMILTON")], cex=0.5, pos=2)
+text(x=fl$x1524per[which(fl$county=="ORANGE")],
+     y=std$total[which(fl$county=="ORANGE")],
+     labels=std$County[which(fl$county=="ORANGE")], cex=0.5, pos=2)
+
+legend(x="topleft", pch=16, pt.cex=c(1,2,3), legend=c("1000", "2000", "3000"),
+       title="STD rate among 15-24 year olds", cex=0.5, 
+       col=adjustcolor("black", alpha.f=0.3), border=FALSE, bty="n")
+legend(x="bottomright", fill=c(mycols[16], mycols[40], mycols[60]),
+       legend=c("400", "1000", "1500"), bty="n", border=FALSE, cex=0.5,
+       title="Total STD rate")
+
+@
+\end{center}
+
+\section*{What if our population weren't so young?}
+\subsection*{Age Standardization}
+
+We can measure the exact skewing effect of our demographic profile via age "standardization."  This means calculating the number of people we would have in each age group if our population exactly resembled Florida's (in terms of age).  And having done that, we retroactively apply our age-group specific incidence rates to the new "imagined" population sizes, and from there re-calculate an "adjusted" incidence rate.  And then do the same for every other county so that we can compare to something.\\
+
+\newpage
+\subsection*{Results}
+
+Standardizing for age brings our STD rate down to 599.9 per 100,000, much closer to the State STD rate of 525 per 100,000.  What does this mean?  If our population had the same age profile as Florida's, we could expect to have an STD rate similar to Florida's.
+
+\begin{center}
+<<height=6, width=10>>=
+hist(std$adjper, breaks=25, col=mycols2, main="Age-Standardized STD Rate", xlab="STD rate per 100,000", ylab="Counties", border=FALSE)
+abline(v=std$adjper[which(std$County=="ALACHUA")], col=adjustcolor("dodgerblue3", alpha.f=0.6), lwd=5)
+text(x=std$adjper[which(std$County=="ALACHUA")], y=7, labels="Alachua", pos=4, col="grey40")
+@
+
+<<height=6, width=10>>=
+std4 <- std[order(std$adjper) , ]
+barplot(std4$adjper, names.arg=std4$County, las=2, cex.names=0.6,border=FALSE, col=mycols, 
+        main="Age-Standardized STD Rate", xlab="County", ylab="Rate")
+
+abline(v=mybarplot[49,1], col=adjustcolor("dodgerblue3", alpha.f=0.6), lwd=4)
+
+@
+\end{center}
+\newpage
+\subsection*{Limitations}
+Age standardization is a theoretical exercise, and is "unreal" in the sense that it supposes certain constants (STD rate for an age group) in changing conditions (differing population sizes). \\
+
+Age is only one component of the "demographic" factors that determine the incidence of STDs.  Controlling for sociodemographic characteristics like rural/urban conditions, race, education, etc. could give us a clearer picture. \\
+
+The standardization carried out for this report used composite age groups (5 to 10 year groupings), which masks some differences (particularly in the crucial 15-24 year-old group).
+
+
+\subsection*{Technical details}
+The analysis of this data was done in an R environment using original script and compiled via Sweave and LaTeX.  The population size data comes from the 2010 U.S. Census.  The total STD numbers per county comes from Alex's table. \\
+
+This is intended for internal use.  Let me know if you'd like anything "cleaned up" to share with others.\\
+
+What follows on the next two pages is the output of this analysis in tabular form.
+
+\newpage
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrrrrrrrrrr}
+  \hline
+County & 0-4 & 5-9 & 10-14 & 15-24 & 25-29 & 30-34 & 35-39 & 40-44 &  45-54 & 55-64 & 65 + & STD rate & Adj. rate \\ 
+  \hline
+ALACHUA & 0 & 0 & 151 & 2524 & 1358 & 646 & 365 & 1112 & 100 & 20 & 139 & 893 & 600 \\ 
+  BAKER & 0 & 0 & 55 & 2590 & 1186 & 793 & 271 & 528 & 0 & 0 & 0 & 516 & 515 \\ 
+  BAY & 0 & 0 & 68 & 3526 & 1470 & 385 & 104 & 648 & 51 & 13 & 47 & 553 & 645 \\ 
+  BRADFORD & 0 & 0 & 202 & 3191 & 859 & 416 & 143 & 495 & 49 & 59 & 0 & 593 & 562 \\ 
+  BREVARD & 0 & 4 & 103 & 2130 & 941 & 454 & 175 & 470 & 45 & 10 & 74 & 360 & 433 \\ 
+  BROWARD & 1 & 0 & 60 & 2779 & 1472 & 685 & 423 & 1483 & 182 & 57 & 134 & 565 & 682 \\ 
+  CALHOUN & 0 & 0 & 0 & 2198 & 474 & 201 & 305 & 1562 & 112 & 0 & 0 & 431 & 469 \\ 
+  CHARLOTTE & 0 & 0 & 41 & 1861 & 707 & 234 & 157 & 122 & 18 & 0 & 0 & 213 & 324 \\ 
+  CITRUS & 0 & 0 & 62 & 2350 & 873 & 377 & 120 & 284 & 43 & 0 & 192 & 280 & 453 \\ 
+  CLAY & 0 & 0 & 56 & 1989 & 895 & 385 & 206 & 373 & 10 & 18 & 0 & 380 & 382 \\ 
+  COLLIER & 0 & 0 & 44 & 1450 & 784 & 318 & 234 & 343 & 44 & 8 & 78 & 239 & 318 \\ 
+  COLUMBIA & 0 & 0 & 0 & 2553 & 1418 & 521 & 204 & 245 & 106 & 46 & 0 & 530 & 502 \\ 
+  DESOTO & 0 & 0 & 314 & 2049 & 713 & 284 & 248 & 0 & 87 & 0 & 0 & 407 & 376 \\ 
+  DIXIE & 0 & 0 & 113 & 3168 & 1364 & 723 & 229 & 3243 & 96 & 45 & 550 & 615 & 893 \\ 
+  DUVAL & 0 & 3 & 102 & 4038 & 1985 & 889 & 368 & 1488 & 136 & 34 & 68 & 907 & 870 \\ 
+  ESCAMBIA & 0 & 0 & 91 & 3111 & 1388 & 742 & 320 & 819 & 72 & 28 & 95 & 756 & 647 \\ 
+  FLAGLER & 0 & 0 & 116 & 2629 & 982 & 584 & 167 & 378 & 22 & 13 & 367 & 356 & 552 \\ 
+  FRANKLIN & 0 & 0 & 176 & 3884 & 1384 & 437 & 230 & 0 & 111 & 0 & 0 & 623 & 657 \\ 
+  GADSDEN & 0 & 0 & 218 & 6777 & 2882 & 1979 & 657 & 1268 & 231 & 64 & 0 & 1554 & 1361 \\ 
+  GILCHRIST & 0 & 0 & 0 & 1384 & 1000 & 571 & 98 & 0 & 0 & 44 & 0 & 342 & 289 \\ 
+  GLADES & 0 & 0 & 0 & 1776 & 2222 & 387 & 637 & 0 & 130 & 0 & 0 & 411 & 452 \\ 
+  GULF & 0 & 0 & 120 & 2247 & 376 & 175 & 165 & 0 & 119 & 0 & 0 & 372 & 363 \\ 
+  HAMILTON & 0 & 0 & 116 & 5463 & 1157 & 367 & 450 & 459 & 104 & 0 & 0 & 1020 & 883 \\ 
+  HARDEE & 0 & 0 & 0 & 1621 & 725 & 240 & 54 & 0 & 62 & 0 & 0 & 357 & 283 \\ 
+  HENDRY & 0 & 0 & 66 & 2045 & 863 & 513 & 137 & 406 & 72 & 60 & 0 & 572 & 409 \\ 
+  HERNANDO & 0 & 0 & 43 & 1850 & 638 & 269 & 205 & 232 & 36 & 8 & 0 & 238 & 333 \\ 
+  HIGHLANDS & 0 & 0 & 78 & 2784 & 1404 & 474 & 273 & 322 & 26 & 0 & 0 & 387 & 524 \\ 
+  HILLSBOROUGH & 1 & 0 & 115 & 3724 & 1721 & 812 & 376 & 1157 & 109 & 34 & 60 & 757 & 778 \\ 
+  HOLMES & 0 & 0 & 85 & 2385 & 736 & 170 & 80 & 0 & 0 & 0 & 0 & 442 & 376 \\ 
+  INDIAN RIVER & 0 & 0 & 68 & 2498 & 1196 & 443 & 168 & 268 & 76 & 23 & 0 & 364 & 471 \\ 
+   \hline
+\end{tabular}
+\caption{STD rate table} 
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrrrrrrrrrr}
+  \hline
+County & 0-4 & 5-9 & 10-14 & 15-24 & 25-29 & 30-34 & 35-39 & 40-44 &  45-54 & 55-64 & 65 + & STD rate & Adj. rate \\ 
+  \hline
+JACKSON & 0 & 0 & 246 & 3117 & 919 & 421 & 287 & 553 & 38 & 0 & 166 & 615 & 592 \\ 
+  JEFFERSON & 0 & 0 & 418 & 4343 & 1641 & 938 & 485 & 1942 & 44 & 0 & 0 & 779 & 914 \\ 
+  LAFAYETTE & 0 & 0 & 0 & 848 & 231 & 97 & 105 & 633 & 0 & 0 & 0 & 214 & 179 \\ 
+  LAKE & 0 & 0 & 62 & 2777 & 1408 & 568 & 234 & 517 & 39 & 14 & 65 & 389 & 557 \\ 
+  LEE & 0 & 0 & 106 & 2633 & 1117 & 490 & 247 & 543 & 46 & 21 & 97 & 391 & 527 \\ 
+  LEON & 0 & 0 & 135 & 4168 & 2173 & 1053 & 514 & 1109 & 105 & 39 & 62 & 1384 & 885 \\ 
+  LEVY & 82 & 0 & 39 & 3208 & 1471 & 286 & 130 & 853 & 17 & 16 & 0 & 527 & 602 \\ 
+  LIBERTY & 0 & 0 & 0 & 2014 & 435 & 0 & 127 & 1370 & 90 & 0 & 0 & 406 & 401 \\ 
+  MADISON & 0 & 0 & 267 & 3939 & 1253 & 853 & 595 & 426 & 0 & 0 & 397 & 890 & 790 \\ 
+  MANATEE & 5 & 0 & 119 & 3210 & 1234 & 570 & 244 & 578 & 44 & 12 & 27 & 471 & 601 \\ 
+  MARION & 0 & 0 & 66 & 3217 & 1730 & 534 & 186 & 540 & 46 & 0 & 56 & 495 & 630 \\ 
+  MARTIN & 0 & 0 & 42 & 2020 & 992 & 365 & 201 & 313 & 24 & 9 & 84 & 261 & 402 \\ 
+  MIAMI-DADE & 0 & 1 & 70 & 2270 & 1190 & 593 & 334 & 1337 & 141 & 46 & 158 & 494 & 573 \\ 
+  MONROE & 0 & 0 & 0 & 1577 & 660 & 296 & 315 & 1353 & 70 & 16 & 287 & 270 & 436 \\ 
+  NASSAU & 0 & 0 & 22 & 1937 & 950 & 309 & 190 & 289 & 17 & 0 & 0 & 336 & 365 \\ 
+  OKALOOSA & 0 & 0 & 33 & 2477 & 1396 & 437 & 147 & 463 & 38 & 4 & 38 & 512 & 491 \\ 
+  OKEECHOBEE & 0 & 0 & 74 & 2284 & 1513 & 741 & 302 & 604 & 54 & 71 & 0 & 525 & 519 \\ 
+  ORANGE & 1 & 0 & 98 & 3103 & 1482 & 704 & 351 & 1008 & 121 & 34 & 71 & 704 & 670 \\ 
+  OSCEOLA & 0 & 0 & 41 & 2092 & 1151 & 597 & 262 & 818 & 37 & 30 & 26 & 494 & 467 \\ 
+  PALM BEACH & 0 & 0 & 59 & 2033 & 1128 & 438 & 249 & 805 & 65 & 28 & 76 & 351 & 460 \\ 
+  PASCO & 0 & 0 & 11 & 1692 & 867 & 320 & 172 & 309 & 38 & 2 & 108 & 247 & 351 \\ 
+  PINELLAS & 0 & 0 & 94 & 3693 & 1587 & 799 & 306 & 870 & 92 & 21 & 76 & 577 & 741 \\ 
+  POLK & 0 & 0 & 71 & 2870 & 1371 & 644 & 281 & 898 & 71 & 28 & 89 & 506 & 608 \\ 
+  PUTNAM & 0 & 0 & 208 & 3366 & 1712 & 977 & 434 & 364 & 57 & 19 & 0 & 617 & 679 \\ 
+  ST JOHNS & 0 & 0 & 0 & 1479 & 597 & 237 & 155 & 383 & 12 & 11 & 0 & 256 & 283 \\ 
+  ST LUCIE & 0 & 0 & 66 & 2829 & 1358 & 568 & 273 & 726 & 60 & 8 & 31 & 467 & 571 \\ 
+  SANTA ROSA & 0 & 0 & 40 & 1468 & 612 & 215 & 101 & 431 & 39 & 5 & 0 & 262 & 285 \\ 
+  SARASOTA & 0 & 0 & 27 & 2279 & 1048 & 494 & 199 & 595 & 56 & 14 & 199 & 290 & 492 \\ 
+  SEMINOLE & 0 & 0 & 32 & 2354 & 934 & 424 & 163 & 543 & 39 & 16 & 60 & 430 & 457 \\ 
+  SUMTER & 0 & 0 & 24 & 1852 & 652 & 216 & 72 & 282 & 40 & 16 & 134 & 253 & 353 \\ 
+  SUWANNEE & 0 & 0 & 165 & 1771 & 810 & 472 & 176 & 696 & 79 & 18 & 0 & 402 & 390 \\ 
+  TAYLOR & 0 & 0 & 372 & 1718 & 560 & 241 & 219 & 0 & 0 & 32 & 0 & 332 & 312 \\ 
+  UNION & 0 & 0 & 0 & 2390 & 625 & 219 & 127 & 337 & 0 & 0 & 0 & 444 & 394 \\ 
+  VOLUSIA & 4 & 0 & 90 & 2714 & 1314 & 555 & 267 & 1002 & 56 & 12 & 99 & 497 & 587 \\ 
+  WAKULLA & 0 & 0 & 53 & 2755 & 727 & 375 & 96 & 0 & 19 & 0 & 0 & 448 & 437 \\ 
+  WALTON & 0 & 0 & 131 & 1810 & 467 & 280 & 112 & 655 & 53 & 0 & 0 & 296 & 346 \\ 
+  WASHINGTON & 0 & 0 & 127 & 1757 & 509 & 345 & 118 & 0 & 27 & 0 & 0 & 337 & 301 \\ 
+   \hline
+\end{tabular}
+\caption{STD rate table (cont.)} 
+\end{table}
+
+
+
+\end{document}

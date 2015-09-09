@@ -1,0 +1,1534 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.19)  19 FEB 2015 06:50
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**superintendent.tex
+(./superintendent.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+! Undefined control sequence.
+<recently read> \graphicspath 
+                              
+l.6 \graphicspath
+                 {/home/joebrew/Documents/fdoh/public/ab_chd_private/reports...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 \graphicspath{/
+                   home/joebrew/Documents/fdoh/public/ab_chd_private/reports...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.6 ...ath{/home/joebrew/Documents/fdoh/public/ab_
+                                                  chd_private/reports/target...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 6.
+! Extra }, or forgotten $.
+l.6 ...c/ab_chd_private/reports/targeting/visuals}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.7 
+    
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (30.3887pt too wide) in paragraph at lines 6--7
+[]\OT1/cmr/m/n/10 /home/joebrew/Documents/fdoh/public/ab$[]\OML/cmm/m/it/10 hd[
+]rivate=reports=targeting=visuals$ 
+ []
+
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count90
+\mult@box=\box26
+\multicol@leftmargin=\dimen111
+\c@unbalance=\count91
+\c@collectmore=\count92
+\doublecol@number=\count93
+\multicoltolerance=\count94
+\multicolpretolerance=\count95
+\full@width=\dimen112
+\page@free=\dimen113
+\premulticols=\dimen114
+\postmulticols=\dimen115
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box27
+\last@line=\box28
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count96
+\c@finalcolumnbadness=\count97
+\last@try=\dimen116
+\multicolovershoot=\dimen117
+\multicolundershoot=\dimen118
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+\multicol@sort@counter=\count98
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2013/12/03 3.9h The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2013/12/03 3.9h Babel common definitions
+\babel@savecnt=\count99
+\U@D=\dimen119
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2011/10/22 v5.1d context-sensitive quotations
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count100
+)
+\etb@tempcnta=\count101
+)
+\csq@reset=\count102
+\csq@gtype=\count103
+\csq@glevel=\count104
+\csq@qlevel=\count105
+\csq@maxlvl=\count106
+\csq@tshold=\count107
+\csq@ltx@everypar=\toks16
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2011/10/22 v5.1d csquotes generic definitions
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+)
+Package csquotes Info: Enabling multilingual quotes.
+Package csquotes Info: Redefining alias 'english' -> 'english/american'.
+)
+Package csquotes Info: Allocating character ".
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count108
+\float@exts=\toks17
+\float@box=\box52
+\@float@everytoks=\toks18
+\@floatcapt=\box53
+)
+(/usr/share/R/share/texmf/tex/latex/Sweave.sty
+Package: Sweave 
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count109
+))
+\Gin@req@height=\dimen120
+\Gin@req@width=\dimen121
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count110
+\FV@InFile=\read1
+\FV@TabBox=\box54
+\c@FancyVerbLine=\count111
+\FV@StepNumber=\count112
+\FV@OutFile=\write3
+) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/ae/ae.sty
+Package: ae 2001/02/12 1.3 Almost European Computer Modern
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+)
+LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aer.fd
+File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
+))))
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+ (./superintendent.aux)
+\openout1 = `superintendent.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 62.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 62.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-13.87262pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=20.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package csquotes Info: Making character " active on input line 62.
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count113
+\scratchdimen=\dimen122
+\scratchbox=\box55
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen123
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks20
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.67 \titleGP
+              % This command includes the title page
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.67 \titleGP
+              % This command includes the title page
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./superintendent-concordance.tex) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(99.58464pt, 415.12572pt, 99.58464pt)
+* v-part:(T,H,B)=(99.58464pt, 595.8007pt, 99.58464pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=415.12572pt
+* \textheight=595.8007pt
+* \oddsidemargin=27.31465pt
+* \evensidemargin=27.31465pt
+* \topmargin=-9.68535pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=20.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ (./superintendent.toc)
+\tf@toc=\write4
+\openout4 = `superintendent.toc'.
+
+ [2
+
+]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=681.15898pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=20.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ [3
+
+]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=681.15898pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=20.0pt
+* \skip\footins=18.0pt plus 8.0pt minus 4.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+<superintendent-002.pdf, id=20, 433.62pt x 433.62pt>
+File: superintendent-002.pdf Graphic file (type pdf)
+
+<use superintendent-002.pdf>
+Package pdftex.def Info: superintendent-002.pdf used on input line 166.
+(pdftex.def)             Requested size: 255.24408pt x 255.2447pt.
+
+Overfull \hbox (15.00209pt too wide) in paragraph at lines 166--167
+ [] 
+ []
+
+<superintendent-003.pdf, id=21, 433.62pt x 289.08pt>
+File: superintendent-003.pdf Graphic file (type pdf)
+
+<use superintendent-003.pdf>
+Package pdftex.def Info: superintendent-003.pdf used on input line 173.
+(pdftex.def)             Requested size: 255.24408pt x 170.16313pt.
+
+Overfull \hbox (15.00209pt too wide) in paragraph at lines 173--174
+ [] 
+ []
+
+<superintendent-004.pdf, id=22, 433.62pt x 433.62pt>
+File: superintendent-004.pdf Graphic file (type pdf)
+
+<use superintendent-004.pdf>
+Package pdftex.def Info: superintendent-004.pdf used on input line 185.
+(pdftex.def)             Requested size: 255.24408pt x 255.2447pt.
+
+Overfull \hbox (15.00209pt too wide) in paragraph at lines 185--186
+ [] 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 188.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 188.
+<superintendent-005.pdf, id=23, 433.62pt x 433.62pt>
+File: superintendent-005.pdf Graphic file (type pdf)
+
+<use superintendent-005.pdf>
+Package pdftex.def Info: superintendent-005.pdf used on input line 191.
+(pdftex.def)             Requested size: 255.24408pt x 255.2447pt.
+
+Overfull \hbox (15.00209pt too wide) in paragraph at lines 191--192
+ [] 
+ []
+
+<superintendent-006.pdf, id=24, 433.62pt x 361.35pt>
+File: superintendent-006.pdf Graphic file (type pdf)
+
+<use superintendent-006.pdf>
+Package pdftex.def Info: superintendent-006.pdf used on input line 208.
+(pdftex.def)             Requested size: 255.24408pt x 212.70393pt.
+
+Overfull \hbox (15.00209pt too wide) in paragraph at lines 208--209
+ [] 
+ []
+
+<superintendent-007.pdf, id=25, 433.62pt x 325.215pt>
+File: superintendent-007.pdf Graphic file (type pdf)
+
+<use superintendent-007.pdf>
+Package pdftex.def Info: superintendent-007.pdf used on input line 214.
+(pdftex.def)             Requested size: 255.24408pt x 191.43353pt.
+
+Overfull \hbox (15.00209pt too wide) in paragraph at lines 214--215
+ [] 
+ []
+
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=681.15898pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=20.0pt
+* \skip\footins=18.0pt plus 8.0pt minus 4.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...i \ifdim \ht \mult@grightbox >\dimen@ 
+                                                  \too@badtrue \ifnum \c@tra...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...ifdim \ht \mult@nat@firstbox <\dimen@ 
+                                                  \ifdim \ht \mult@nat@first...
+l.224 \end{multicols}
+                     
+I can't work with sizes bigger than about 19 feet.
+Continue and I'll use the largest value I can.
+
+! Dimension too large.
+\iterate ...nt@ \vsplit \mult@grightbox to\dimen@ 
+                                                  \ifnum \c@tracingmulticols...
+l.224 \end{multicols}
+                     
+(That makes 100 errors; please try again.) 
+Here is how much of TeX's memory you used:
+ 4696 strings out of 493304
+ 66760 string characters out of 6139870
+ 170613 words of memory out of 5000000
+ 8033 multiletter control sequences out of 15000+600000
+ 37944 words of font info for 66 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 37i,9n,29p,857b,35412s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+!  ==> Fatal error occurred, no output PDF file produced!

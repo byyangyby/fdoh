@@ -1,0 +1,831 @@
+<HTML>
+<HEAD>
+<TITLE> FGDL Documentation </TITLE>
+<STYLE>
+          .pre { color: black; font-size: 12pt; font-weight: normal; font-family: courier; }
+	  strong {font-weight: normal; text-transform: uppercase; }
+</STYLE>
+</HEAD>
+<BODY>
+<table width="90%">
+<tr>
+<td>
+<strong><b>FLORIDA GEOGRAPHIC DATA LIBRARY DOCUMENTATION</b></strong><br />
+<p>
+<strong><b>TITLE: ZIP CODE AREAS (FIVE-DIGIT) IN FLORIDA - 2012</b></strong>
+</p>
+<pre>
+Geodataset Name:       ZIPBND_2012
+Geodataset Type:       SHAPEFILE
+Geodataset Feature:    <strong>Polygon</strong>
+Feature Count:         959
+</pre>
+</td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td>
+<strong><b>GENERAL DESCRIPTION:</b></strong>
+<table width="650">
+<tr>
+<td>
+This dataset represents Florida ZIP Code Areas (Five-Digit) used by the U.S. Postal Service to deliver mail more effectively. This layer represents an update to the FGDL layer ZIPBND_2009.shp.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td></td></tr>
+<tr>
+<td>
+<pre>
+DATA SOURCE(S):                    University of Florida GeoPlan Center
+SCALE OF ORIGINAL SOURCE MAPS:     100000
+GEODATASET EXTENT:                 State of Florida<br />
+PUBLICATION DATE:                  20120306
+TIME PERIOD OF CONTENT:            Begin Date: 20060413    End Date: 20120306
+DOWNLOAD LINK:                     <A href="http://www.fgdl.org/metadataexplorer/explorer.jsp">http://www.fgdl.org/metadataexplorer/explorer.jsp</A>
+</pre>
+</td>
+</tr>
+</table>
+<P>
+<strong><b>FEATURE ATTRIBUTE TABLES:</b></strong>
+</P>
+<pre>Datafile Name: ZIPBND_2012.DBF</pre>
+<table width="75%" cellspacing="0" cellpadding="0" border="0">
+<tr align="left">
+<td> ITEM NAME </td>
+<td>WIDTH</td>
+<td>TYPE</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">OBJECTID
+</DIV>
+</td>
+<td>4</td>
+<td>OID</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">Shape
+</DIV>
+</td>
+<td>4</td>
+<td>Geometry</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">PO_NAME
+</DIV>
+</td>
+<td>35</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">ZIP
+</DIV>
+</td>
+<td>5</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">CA_NAME
+</DIV>
+</td>
+<td>35</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">SUMBLKPOP
+</DIV>
+</td>
+<td>4</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">POP2010
+</DIV>
+</td>
+<td>4</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">POP10_SQMI
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">SQMI
+</DIV>
+</td>
+<td>8</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">DESCRIPT
+</DIV>
+</td>
+<td>35</td>
+<td>String</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">FGDLAQDATE
+</DIV>
+</td>
+<td>36</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">AUTOID
+</DIV>
+</td>
+<td>4</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">SHAPE.AREA
+</DIV>
+</td>
+<td>0</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>
+<DIV align="left">SHAPE.LEN
+</DIV>
+</td>
+<td>0</td>
+<td>Double</td>
+</tr>
+</table>
+<p>
+<strong><b>FEATURE ATTRIBUTE TABLES CODES AND VALUES:</b></strong>
+</p>
+<P />
+<table width="75%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td width="30%">Item<pre></pre></td>
+<td>Item Description<pre></pre></td>
+</tr>
+<tr valign="top">
+<td>OBJECTID</td>
+<td>
+Internal feature number.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>Shape</td>
+<td>
+Feature geometry.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>PO_NAME</td>
+<td>
+The post office name.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>ZIP</td>
+<td>
+The five-digit number used by the postal service to identify an area where mail is delivered.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>CA_NAME</td>
+<td>
+The post office city alias name.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>SUMBLKPOP</td>
+<td>
+The sum of the 2000 population for the Census Bureau Block polygon centroids which fall within the Zip Code area.-99 = Data not available.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>POP2010</td>
+<td>
+The 2010 estimated population of the ZIP Code area.-99 = Data not available.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>POP10_SQMI</td>
+<td>
+The 2010 estimated population of the ZIP Code area per square mile.-99 = Data not available.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>SQMI</td>
+<td>
+The area of the ZIP Code polygon in square miles using Albers Equal Area Projection.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>DESCRIPT</td>
+<td>
+Based on PO_NAME.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>FGDLAQDATE</td>
+<td>
+The date FGDL acquired the data from the Source.<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>AUTOID</td>
+<td>
+Unique ID added by GeoPlan<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>SHAPE.AREA</td>
+<td>
+Area in meters<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td>SHAPE.LEN</td>
+<td>
+Perimeter in meters<table>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<pre></pre>
+</td>
+</tr>
+</table>
+<strong><b>USER NOTES:</b></strong>
+<br />
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is'. GeoPlan relied on the integrity
+of the original data layer's topology
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' by GeoPlan and is complete to our
+knowledge.
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+GeoPlan relied on the integrity of the attribute information within
+the original data.
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+Largest scale when displaying the data: 1:250,000.  
+
+U.S. ZIP Code Areas (Five-Digit) represents five-digit ZIP Code areas 
+used by the U.S. Postal Service to deliver mail more effectively. 
+The first digit of a five-digit ZIP Code divides the United States into 10 
+large groups of states numbered from 0 in the Northeast to 9 in the far 
+West. Within these areas, each state is divided into an average of 10 
+smaller geographical areas, identified by the second and third digits. 
+These digits, in conjunction with the first digit, represent a sectional 
+center facility or a mail processing facility area. The fourth and fifth digits 
+identify a post office, station, branch or local delivery area.
+
+The polygons identify areas where mail is delivered 
+(from a city block or two to a whole rural town) within United States.<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+U.S. ZIP Code Areas (Five-Digit) provides area, post office name, and 
+population for each ZIP Code area in the United States.  The polygons 
+identify areas where mail is delivered (from a city block or two to a whole 
+rural town) within United States.<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' and its horizontal positional accuracy
+has not been verified by GeoPlan<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="500">
+<tr>
+<td>
+<pre>
+This data is provided 'as is' and its vertical positional accuracy
+has not been verified by GeoPlan<br /><br />
+</pre>
+</td>
+</tr>
+</table>
+<table width="550">
+<tr>
+<td>
+<pre>
+NONE</pre>
+<br />
+</td>
+</tr>
+</table>
+<table width="550">
+<tr>
+<td>
+<pre>
+The Florida Geographic Data Library is a collection of Geospatial Data
+compiled by the University of Florida GeoPlan Center with support from
+the Florida Department of Transportation. GIS data available in FGDL is
+collected from various state, federal, and other agencies (data sources)
+who are data stewards, producers, or publishers. The data available in
+FGDL may not be the most current version of the data offered by the
+data source. University of Florida GeoPlan Center makes no guarantees
+about the currentness of the data and suggests that data users check
+with the data source to see if more recent versions of the data exist.
+
+Furthermore, the GIS data available in the FGDL are provided 'as is'.
+The University of Florida GeoPlan Center makes no warranties, guaranties
+or representations as to the truth, accuracy or completeness of the data
+provided by the data sources. The University of Florida GeoPlan Center
+makes no representations or warranties about the quality or suitability
+of the materials, either expressly or implied, including but not limited
+to any implied warranties of merchantability, fitness for a particular
+purpose, or non-infringement. The University of Florida GeoPlan Center
+shall not be liable for any damages suffered as a result of using,
+modifying, contributing or distributing the materials.
+
+A note about data scale: 
+
+Scale is an important factor in data usage.  Certain scale datasets
+are not suitable for some project, analysis, or modeling purposes.
+Please be sure you are using the best available data. 
+
+1:24000 scale datasets are recommended for projects that are at the
+county level.
+1:24000 data should NOT be used for high accuracy base mapping such
+as property parcel boundaries.
+1:100000 scale datasets are recommended for projects that are at the
+multi-county or regional level.
+1:125000 scale datasets are recommended for projects that are at the
+regional or state level or larger.
+
+Vector datasets with no defined scale or accuracy should be
+considered suspect. Make sure you are familiar with your data
+before using it for projects or analysis. Every effort has been
+made to supply the user with data documentation. For additional
+information, see the References section and the Data Source Contact
+section of this documentation. For more information regarding
+scale and accuracy, see our webpage at:
+http://geoplan.ufl.edu/education.html</pre>
+<br />
+</td>
+</tr>
+</table>
+<strong><b>REFERENCES: </b></strong>
+<table width="60%">
+<tr>
+<td>
+<pre>
+ESRI Data and Maps:
+http://www.esri.com/data/data-maps/index.html
+</pre>
+<br />
+</td>
+</tr>
+</table>
+<strong><b>DATA LINEAGE SUMMARY: </b></strong>
+<br />
+<table width="60%">
+<tr>
+<td>
+<pre>
+The GeoPlan Center downloaded the zip code boundary data (zip_poly.shp) 
+from the ESRI 9.3.1 Data and Maps DVD.
+
+Reprojected the data from GCS_WGS_1984 to FGDL NAD83 Albers (HPGN).
+See below for full original metadata. 
+
+GEOGCS["GCS_WGS_1984",
+DATUM["D_WGS_1984",
+SPHEROID["WGS_1984",6378137,298.257223563]],
+PRIMEM["Greenwich",0],
+UNIT["Degree",0.0174532925199433]]
+
+GeoPlan added the following five zip code boundaries to the dataset.
+  GOODLAND (34140)
+  EVERGLADES CITY (34139)
+  CHOKOLOSKEE (34138)
+  WELAKA (32193)
+  TALLAHASSEE (32399)
+After adding the five extra zip code boundaries the attribute 
+table was then updated for these records.
+
+Next the 2005 census data from the ZIPBND_2007.shp was appended to the table.
+
+GeoPlan then added the following fields to the dataset.
+  DESCRIPT - Based on PO_NAME
+  FGDLAQDATE - Based on data the data was downloaded from the Source.
+Process Date: 20090910
+<br />
+The GeoPlan Center performed the following steps in order to 
+create the 2012 Zip Code Boundaries data layer.
+
+Existing data sources were reprojected to the following map projection,
+Albers Conical Equal Area [Florida Geographic Data Library]
+Projection: Albers
+False_Easting: 400000.000000
+False_Northing: 0.000000
+Central_Meridian: -84.000000
+Standard_Parallel_1: 24.000000
+Standard_Parallel_2: 31.500000
+Central_Parallel: 24.000000
+Linear Unit: Meter (1.000000)
+
+Geographic Coordinate System: GCS_North_American_1983_HARN
+Angular Unit: Degree (0.017453292519943299)
+Prime Meridian: Greenwich (0.000000000000000000)
+Datum: D_North_American_1983_HARN
+  Spheroid: GRS_1980
+    Semimajor Axis: 6378137.000000000000000000
+    Semiminor Axis: 6356752.314140356100000000
+    Inverse Flattening: 298.257222101000020000
+
+The data sources found below were merged into one layer.
+
+Next tabular data from the ESRI data layer was used to update the census information.
+
+SOURCE DATA INFORMATION:
+
+1) Data sources for existing layers are listed below (25 Sources): 
+
+
+*************************************************
+
+ALACHUA COUNTY
+Date Layer Name: AlachuaZipCode_2012.shp
+Source Date: 20120125
+Record Count: 22
+Original Projection: NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet
+
+BAY COUNTY
+Date Layer Name: zipcodes.shp
+Source Date: 20011009
+Record Count: 13
+Original Projection: NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet
+
+BREVARD COUNTY
+Date Layer Name: Brevard_ZipCodeDec2009.shp
+Source Date: 20091201
+Record Count: 33
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901_Feet
+
+BROWARD COUNTY
+Date Layer Name: ZipCodes.shp
+Source Date: 20090826
+Record Count: 53
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901_Feet
+
+CHARLOTTE COUNTY
+Date Layer Name: zipcodes.shp
+Source Date: 20120121
+Record Count: 15
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902
+
+COLLIER COUNTY
+Date Layer Name: ZIPCODES_COLLIER.shp
+Source Date: 2002
+Record Count: 22
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+ESRI
+Date Layer Name: zip_poly
+Source Date: 20100630 
+Record Count: 950
+Original Projection: GCS_WGS_1984
+
+The following steps were performed by ESRI: Extracted the data set from Tele 
+Atlas MultiNet Post 2010.03. Attached and formatted the STATE field from 2009
+Data Update U.S. ZIP Code Areas (Five-Digit). Added the SQMI field and 
+calculated its values. Added the POP2010 field from ESRI Data. Added the 
+POP10_SQMI field and calculated its values. Added and calculated the 
+SUMBLKPOP field by overlaying U.S. Census Block Centroid Populations and 
+then summing the Census Block centroids that fall within each ZIP Code area. 
+Converted the data set to SDC. Created ArcGIS layer file (.lyr), projection file 
+(.prj), and spatial indices. - Process Date: 20100521
+Contact:
+ESRI
+Tele Atlas MultiNet Post v. 2010.03
+380 New York Street
+Redlands, California
+92373-8100
+909-793-2853
+info@esri.com
+ArcGIS Content Team
+
+GEOPLAN CENTER
+Date Layer Name: ZIPBND_2009.shp (Updated)
+Source Date: 20120213
+Record Count: 22
+Original Projection: Albers Conical Equal Area [Florida Geographic Data Library]
+Process Date: 20120202
+
+HILLSBOROUGH COUNTY
+Date Layer Name: Zipcodes.shp
+Source Date: 20100507
+Record Count: 54
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+MANATEE COUNTY
+Date Layer Name: zip_codes.shp
+Source Date: 20040212
+Record Count: 21
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+MARION COUNTY
+Date Layer Name: ZipcodeBoundaries.shp
+Source Date: 20080701
+Record Count: 31
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+MIAMI-DADE COUNTY
+Date Layer Name: ZipCode.shp
+Source Date: 20120123
+Record Count: 87
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+ORANGE COUNTY
+Date Layer Name: Zip_Codes_20100412.shp
+Source Date: 20100412
+Record Count: 51
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+OSCEOLA COUNTY
+Date Layer Name: Osceola_ZipCodes.shp
+Source Date: 20120127
+Record Count: 15
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+PALM BEACH COUNTY
+Date Layer Name: PBC_Zipcodes.shp
+Source Date: 20120125
+Record Count: 55
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901
+
+PARCELS
+Date Layer Name: statewide_parcels10.fgdb
+Source Date: 20101220
+Record Count: 8876525
+Original Projection: Albers Conical Equal Area [Florida Geographic Data Library]
+
+PASCO COUNTY
+Date Layer Name: Zipcodes.shp
+Source Date: 20070718 
+Record Count: 45
+Original Projection: NAD_1983_HARN_StatePlane_Florida_West_FIPS_0902_Feet
+
+PINELLAS COUNTY
+Date Layer Name: ZipCodes.shp
+Source Date: 20120121
+Record Count: 50
+Original Projection: NAD_1927_StatePlane_Florida_West_FIPS_0902
+
+PUTNAM COUNTY
+Date Layer Name: ZIPCODES.shp
+Source Date: 20060206
+Record Count: 13
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+SARASOTA COUNTY
+Date Layer Name: ZipCode.shp
+Source Date: 20110601
+Record Count: 28
+Original Projection: NAD_1983_StatePlane_Florida_West_FIPS_0902_Feet
+
+SEMINOLE COUNTY
+Date Layer Name: ZipCodes.shp
+Source Date: 20070301
+Record Count: 29
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+ST JOHNS COUNTY
+Date Layer Name: zip_code.shp
+Source Date: 20081224
+Record Count: 11
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901_Feet
+
+ST LUCIE COUNTY
+Date Layer Name: ZipCodes.shp
+Source Date: 20090915
+Record Count: 18
+Original Projection: NAD_1983_StatePlane_Florida_East_FIPS_0901_Feet
+
+VOLUSIA COUNTY
+Date Layer Name: zipcodes.shp
+Source Date: 20071109
+Record Count: 33
+Original Projection: NAD_1983_HARN_StatePlane_Florida_East_FIPS_0901_Feet
+
+WALTON COUNTY
+Date Layer Name: Zip_Code_Areas.shp
+Source Date: 20120125
+Record Count: 15
+Original Projection: NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet
+Process Date: 20120615
+<br />
+</pre>
+</td>
+</tr>
+</table>
+<strong><b>MAP PROJECTION PARAMETERS: </b></strong>
+<br />
+<pre>
+Projection                          ALBERS
+Datum                               HPGN
+Units                               METERS
+Spheroid                            GRS1980
+1st Standard Parallel               24  0  0.000
+2nd Standard Parallel               31 30  0.000
+Central Meridian                   -84 00  0.000
+Latitude of Projection's Origin     24  0  0.000
+False Easting (meters)              400000.00000
+False Northing (meters)             0.00000
+</pre>
+<p>
+<strong><b>DATA SOURCE CONTACT (S):</b></strong>
+</p>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td>
+<pre>
+Name:
+Abbr. Name:
+Address:
+
+
+Phone:
+
+Web site:
+E-mail:
+Contact Person:
+         Phone:
+        E-mail:
+</pre>
+</td>
+<td valign="top"><pre>University of Florida GeoPlan Center
+GeoPlan
+431 Architecture PO Box 115706
+Gainesville, FL
+32611-5706
+
+<br />
+www.fgdl.org/
+data@fgdl.org
+
+</pre>
+</td>
+</tr>
+</table>
+<br />
+<strong><b>FGDL CONTACT:</b></strong>
+<pre>
+Name:                   FLORIDA GEOGRAPHIC DATA LIBRARY
+Abbr. Name:             FGDL
+Address:                Florida Geographic Data Library
+                        431 Architecture Building
+                        PO Box 115706
+                        Gainesville, FL  32611-5706
+Web site:               <a href="http://www.fgdl.org">http://www.fgdl.org</a>
+
+Contact FGDL: 
+
+      Technical Support:	        <a href="http://www.fgdl.org/fgdlfeed.html">http://www.fgdl.org/fgdlfeed.html</a>
+      FGDL Frequently Asked Questions:  <a href="http://www.fgdl.org/fgdlfaq.html">http://www.fgdl.org/fgdlfaq.html</a>
+      FGDL Mailing Lists:		<a href="http://www.fgdl.org/fgdl-l.html">http://www.fgdl.org/fgdl-l.html</a>
+      For FGDL Software:                <a href="http://www.fgdl.org/software.html">http://www.fgdl.org/software.html</a>
+</pre>
+</BODY>
+</HTML>

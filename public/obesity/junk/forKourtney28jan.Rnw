@@ -1,0 +1,282 @@
+\documentclass{article}
+\usepackage{geometry}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\newcommand*{\titleGP}{\begingroup % Create the command for including the title page in the document
+\centering % Center all text
+\vspace*{\baselineskip} % White space at the top of the page
+
+\today \par % Location and year
+
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
+\rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+
+{\LARGE OBESITY AND OVERWEIGHT IN ALACHUA COUNTY \\[0.3\baselineskip] } For Tammy and Kourtney \\[0.2\baselineskip] % Title
+
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
+\rule{\textwidth}{1.6pt}\\[\baselineskip] % Thick horizontal line
+
+\scshape % Small caps
+Florida Department of Health \\ % Tagline(s) or further description
+Alachua County\\[\baselineskip] % Tagline(s) or further description
+
+\vspace*{2\baselineskip} % Whitespace between location/year and editors
+
+
+
+\vfill % Whitespace between editor names and publisher logo
+
+%{\large CONFIDENTIAL INFORMATION} 
+%\vspace*{0.7\baselineskip}
+
+%DO NOT DISCLOSE, DISSEMINATE OR COPY
+
+\vspace*{2\baselineskip} % Whitespace between location/year and editors
+
+
+{\small JOE BREW\par} % Editor list
+{\itshape Disease Control Unit\par} % Editor affiliation
+{\scshape Joseph.Brew@FLHealth.gov} \\[0.2\baselineskip] 
+
+\endgroup}
+
+%----------------------------------------------------------------------------------------
+%  BLANK DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\begin{document} 
+\SweaveOpts{concordance=TRUE}
+\titleGP % This command includes the title page
+
+
+\newgeometry{margin=1.5cm}
+
+\SweaveOpts{concordance=TRUE, fig=TRUE, echo=FALSE, results=hide}
+<<fig=FALSE>>=
+setwd("E:/workingdirectory/obesity")
+load("E:/workingdirectory/obesity/fourKourtney28jan.RData")
+
+@
+
+
+\section*{Summary}
+Population-level data suggest that Alachua is outperforming Florida in regards to achieving the goals of Healthiest Weight Florida.  But it is worth taking note of two worrying trends in the realm to racial disparities and youth obesity.  
+
+\section*{General trends}
+As of 2010, Alachua has the fifth lowest adult obesity rate among Florida's 68 counties.  At 21.6\%, that puts us nearly four percentage points lower than the State average (25.2\%) and less than half the rate of the worst-performing county (Hardee). Only Monroe, Palm Beach, Sarasota and Martin counties have lower rates.  
+\begin{center}
+<<height=3>>=
+par(mfrow=c(1,1))
+par(mar=c(3,2,1,0))
+par(oma=c(1,0,0,0))
+
+#Adult obesity hist
+hist(obesity$rate, breaks=10, main="Obesity rate by county", xlab="Percent", col="lightblue")
+abline(v=obesity$rate[which(obesity$county=="Alachua")], col=myred, lwd=4)
+text(x=obesity$rate[which(obesity$county=="Alachua")], y=16, col=adjustcolor("black", alpha.f=0.6),
+     cex=1, label="Alachua")
+
+
+
+@
+
+<<height=3>>=
+par(mfrow=c(1,1))
+par(mar=c(3,2,1,0))
+par(oma=c(1,0,0,0))
+
+
+#Adult obesity barplot
+obesity$col <- "grey"
+obesity$col[which(obesity$county == "Alachua")] <- myred
+barplot(obesity$rate, space=0, main="Obesity rate by county", xlab="County", col=obesity$col,
+        ylab="Percent of adults who are obese", names.arg=obesity$county, las=3, cex.names=0.3)
+
+@
+\end{center}
+\newpage
+\section*{Obesity by race}
+Alachua's good performance on obesity masks troubling inequalities between blacks and whites. \\
+
+\subsection*{Adult obesity rate among whites}
+At 21\%, Alachua's adult obesity rate among whites is among the best in the State.
+\begin{center}
+<<height=3>>=
+par(mfrow=c(1,2))
+par(mar=c(3,2,1,0))
+par(oma=c(1,0,0,0))
+
+#Adult obesityWhite hist
+hist(obesityWhite$rate, breaks=10, main="Obesity rate by county (white adults)", xlab="Percent", col="lightblue", cex.main=0.7)
+abline(v=obesityWhite$rate[which(obesityWhite$county=="Alachua")], col=myred, lwd=4)
+text(x=obesityWhite$rate[which(obesityWhite$county=="Alachua")], y=16, col=adjustcolor("black", alpha.f=0.6),
+     cex=1, label="Alachua")
+
+#Adult obesityWhite barplot
+obesityWhite$col <- "grey"
+obesityWhite$col[which(obesityWhite$county == "Alachua")] <- myred
+barplot(obesityWhite$rate, space=0, main="Obesity rate by county (white adults)", xlab="County", col=obesityWhite$col,
+        ylab="Percent obese", names.arg=obesityWhite$county, las=3, cex.names=0.3, cex.main=0.7)
+
+@
+\end{center}
+ 
+\subsection*{Adult obesity rate among blacks} 
+As of 2010, Alachua's adult obesity rate among blacks was 43.6\%.  Race-specific obesity rates are unavailable for 37 counties.  But among those counties on whom data are available, Alachua
+
+\begin{center}
+<<height=3>>=
+par(mfrow=c(1,2))
+par(mar=c(3,2,1,0))
+par(oma=c(1,0,0,0))
+
+#DO BlackS ONLY
+obesityBlack <- read.csv("obesityBlack2010.csv", skip=1)
+colnames(obesityBlack) <- c("county", "rate")
+obesityBlack <- obesityBlack[order(obesityBlack$rate),]
+#Adult obesityBlack hist
+hist(obesityBlack$rate, breaks=10, main="Obesity rate by county (black adults)", xlab="Percent", col="lightblue", cex.main=0.7)
+abline(v=obesityBlack$rate[which(obesityBlack$county=="Alachua")], col=myred, lwd=4)
+text(x=obesityBlack$rate[which(obesityBlack$county=="Alachua")], y=4, col=adjustcolor("black", alpha.f=0.6),
+     cex=1, label="Alachua")
+
+#Adult obesityBlack barplot
+obesityBlack$col <- "grey"
+obesityBlack$col[which(obesityBlack$county == "Alachua")] <- myred
+barplot(obesityBlack$rate, space=0, main="Obesity rate by county (black adults)", xlab="County", col=obesityBlack$col,
+        ylab="Percent obese", names.arg=obesityBlack$county, las=3, cex.names=0.3, cex.main=0.7)
+@
+\end{center}
+\newpage
+\section*{Why the discrepancy?}
+Sedentism may explain part of Alachua's racial disparities regarding obesity.
+
+\subsection*{Sedentarism among whites} 
+Among whites, Alachua has the 2nd lowest sedentism rate in the State (2007 data).
+\begin{center}
+<<height=3>>=
+par(mfrow=c(1,2))
+par(mar=c(3,2,1,0))
+par(oma=c(1,0,0,0))
+
+
+#whites only sedentarism
+sedentaryWhite <- read.csv("sedentaryWhite2007.csv", skip=1)
+colnames(sedentaryWhite) <- c("county", "rate")
+sedentaryWhite <- sedentaryWhite[order(sedentaryWhite$rate),]
+#Adult sedentaryWhite hist
+hist(sedentaryWhite$rate, breaks=10, cex.main=0.7, main="Sedentism rate by county (white adults)", xlab="Percent", col="lightblue")
+abline(v=sedentaryWhite$rate[which(sedentaryWhite$county=="Alachua")], col=myred, lwd=4)
+text(x=sedentaryWhite$rate[which(sedentaryWhite$county=="Alachua")], y=16, col=adjustcolor("black", alpha.f=0.6),
+     cex=1, label="Alachua")
+
+#Adult sedentaryWhite barplot
+sedentaryWhite$col <- "grey"
+sedentaryWhite$col[which(sedentaryWhite$county == "Alachua")] <- myred
+barplot(sedentaryWhite$rate, space=0, cex.main=0.7, main="Sedentism rate by county (white adults)", xlab="County", col=sedentaryWhite$col,
+        ylab="Percent sedentary", names.arg=sedentaryWhite$county, las=3, cex.names=0.3)
+
+@
+\end{center}
+
+
+\subsection*{Sedentarism among blacks} 
+Among blacks, however, Alachua is outperformed by at least 25 other counties in regards to sedentism.
+\begin{center}
+<<height=3>>=
+par(mfrow=c(1,2))
+par(mar=c(3,2,1,0))
+par(oma=c(1,0,0,0))
+
+#### BLACKS SEDENTARISM
+
+#whites only sedentarism
+sedentaryBlack <- read.csv("sedentaryBlack2007.csv", skip=1)
+colnames(sedentaryBlack) <- c("county", "rate")
+sedentaryBlack <- sedentaryBlack[order(sedentaryBlack$rate),]
+#Adult sedentaryBlack hist
+hist(sedentaryBlack$rate, breaks=10, cex.main=0.7, main="Sedentism rate by county (black adults)", xlab="Percent", col="lightblue")
+abline(v=sedentaryBlack$rate[which(sedentaryBlack$county=="Alachua")], col=myred, lwd=4)
+text(x=sedentaryBlack$rate[which(sedentaryBlack$county=="Alachua")], y=16, col=adjustcolor("black", alpha.f=0.6),
+     cex=1, label="Alachua")
+
+#Adult sedentaryBlack barplot
+sedentaryBlack$col <- "grey"
+sedentaryBlack$col[which(sedentaryBlack$county == "Alachua")] <- myred
+barplot(sedentaryBlack$rate, space=0, cex.main=0.7, main="Sedentism rate by county (black adults)", xlab="County", col=sedentaryBlack$col,
+        ylab="Percent sedentary", names.arg=sedentaryBlack$county, las=3, cex.names=0.3)
+
+@
+\end{center}
+\newpage
+\section*{What about children?}
+Compared to our generally good adult obesity rates, Alachua is doing relatively poorly in the realm of child obesity.
+
+\subsection*{Obesity among middle-schoolers}
+As of 2012, Alachua's percentage of middle-schoolers with a BMI for age greater than the 95th percentile was 13.8\%.  That's more than 2.5\% greater than the Florida average, and puts us in 38th in the State.
+
+\begin{center}
+<<height=3>>=
+par(mfrow=c(1,2))
+par(mar=c(3,2,1,0))
+par(oma=c(1,0,0,0))
+
+#Adult mid hist
+hist(mid$rate, breaks=10, cex.main=0.7, main="BMI > 95% among middle schoolers", xlab="Percent", col="lightblue")
+abline(v=mid$rate[which(mid$county=="Alachua")], col=myred, lwd=4)
+text(x=mid$rate[which(mid$county=="Alachua")], y=16, col=adjustcolor("black", alpha.f=0.6),
+     cex=1, label="Alachua")
+
+#Adult mid barplot
+mid$col <- "grey"
+mid$col[which(mid$county == "Alachua")] <- myred
+barplot(mid$rate, space=0, cex.main=0.7, main="BMI > 95% among middle schoolers", xlab="County", col=mid$col,
+        ylab="Percent middle schoolers with BMI > 95%", names.arg=mid$county, las=3, cex.names=0.3)
+
+@
+\end{center}
+
+
+\subsection*{Obesity among high-schoolers}
+13.4\% of Alachua high-schoolers have a BMI greater than the 95th percentile, slightly better than the Florida average of 14.3\%.  For this measure, Alachua is ranked 17th in the State.
+\begin{center}
+<<height=3>>=
+par(mfrow=c(1,2))
+par(mar=c(3,2,1,0))
+par(oma=c(1,0,0,0))
+# high hist
+hist(high$rate, breaks=10, cex.main=0.7, main="BMI > 95% among high schoolers", xlab="Percent", col="lightblue")
+abline(v=high$rate[which(high$county=="Alachua")], col=myred, lwd=4)
+text(x=high$rate[which(high$county=="Alachua")], y=10, col=adjustcolor("black", alpha.f=0.6),
+     cex=1, label="Alachua")
+
+# high barplot
+high$col <- "grey"
+high$col[which(high$county == "Alachua")] <- myred
+barplot(high$rate, space=0, cex.main=0.7, main="BMI > 95% among high schoolers", xlab="County", col=high$col,
+        ylab="Percent high schoolers with BMI > 95%", names.arg=high$county, las=3, cex.names=0.3)
+
+@
+\end{center}
+
+\newpage
+\section*{Conclusion}
+\textbf{Age: a blessing and a curse} Alachua likely appears to be doing well in the fight against obesity for the same reason we appear to be doing poorly in the fight against STDs: our unique population.  The presence of the University drastically affects our scores on many measures, and rates should be standardized for age to better assess true performance. \\
+
+\noindent \textbf{Race and inequality} In Florida, as in the rest of the United States, blacks have a greater prevalence of obesity than whites.  But this disparity is greater in Alachua, where, on average, whites are \textbf{less} obese than whites in the rest of Florida, and blacks are \textbf{more} obese than blacks in the rest of Florida.  This should be of particular concern. \\
+
+\noindent \textbf{Troubling trends among youth}
+It appears that, relative to the rest of the State, Alachua performs worse at younger age groups.  This is of particular concern for the future-oriented goals of teh Healthiest Weight initiative.
+
+\subsection*{Where do we stand on data access?}
+
+I've requested (and should soon be getting) the complete health screening data for the last few years from the SBAC.  This will allow us to better understand disparities among youth to target initiatives appropriately.  It will also allow us to better understand current trends.  \\
+
+\noindent I'm meeting with the SBAC chef on Friday (Moss Crutchfield) in order to obtain further data on the types of programs currently active in schools and their implementation dates.  Of particular interest is "differential implementation," which will allow us to parse out the effectiveness of school initiatives (in order to advise their suitability on a larger school).
+
+
+
+\end{document}
+

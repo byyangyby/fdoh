@@ -1,0 +1,1178 @@
+%----------------------------------------------------------------------------------------
+%  PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+\graphicspath{/home/joebrew/Documents/fdoh/public/ab_chd_private/reports/targeting/visuals}
+
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic publisher logo
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+
+\newcommand*{\titleGP}{\begingroup % Create the command for including the title page in the document
+\centering % Center all text
+\vspace*{\baselineskip} % White space at the top of the page
+
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
+\rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+
+{\Huge CONTROL FLU AND \\[0.4\baselineskip]  
+ALACHUA PUBLIC SCHOOLS}\\[0.4\baselineskip] 
+% Title
+
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
+\rule{\textwidth}{1.6pt}\\[\baselineskip] % Thick horizontal line
+
+\scshape % Small caps
+% \Large{White Paper}  \\[\baselineskip] % Tagline(s) or further description
+
+\begin{Large}
+A partnership to reduce absenteeism, improve preparedness and protect our community's most vulnerable \par % Location and year
+\end{Large}
+\vspace*{2\baselineskip} % Whitespace between location/year and editors
+
+ \\[\baselineskip]
+{\large DISEASE CONTROL UNIT\par} % Editor list
+{\itshape Joe Brew\par} % Editor affiliation
+
+\vfill % Whitespace between editor names and publisher logo
+
+ \\[0.3\baselineskip] % Publisher logo
+{\scshape February 2015} \\[0.3\baselineskip] % Year published
+{\large joseph.brew@flhealth.gov}\par % Publisher
+
+\endgroup}
+
+%----------------------------------------------------------------------------------------
+%	BLANK DOCUMENT
+%----------------------------------------------------------------------------------------
+
+
+\setlength\columnsep{20pt}
+\begin{document} 
+
+
+\pagestyle{empty} % Removes page numbers
+
+\titleGP % This command includes the title page
+\SweaveOpts{concordance=TRUE, echo = FALSE}
+
+
+<<>>=
+#####
+# SET WORKING DIRECTORY CONDITIONAL TO SYSTEM
+#####
+if ( Sys.info()["sysname"] == "Linux" ){
+  private <- "/media/joebrew/JB/fdoh/private/ab_chd_private"
+  public <- "/home/joebrew/Documents/fdoh/public/ab_chd_private"
+} else {
+  private <- "E:/fdoh/private/ab_chd_private"
+  public <- "C:/Users/BrewJR/Documents/fdoh/public/ab_chd_private"
+}
+
+#####
+# READ IN THE DATA
+#####
+load(paste0(private, "/data/images/01_read_and_clean.RData"))
+
+#####
+# REESTABLISH WORKING DIRECTORY CONDITIONAL TO SYSTEM
+#####
+if ( Sys.info()["sysname"] == "Linux" ){
+  private <- "/media/joebrew/JB/fdoh/private/ab_chd_private"
+  public <- "/home/joebrew/Documents/fdoh/public/ab_chd_private"
+} else {
+  private <- "E:/fdoh/private/ab_chd_private"
+  public <- "C:/Users/BrewJR/Documents/fdoh/public/ab_chd_private"
+}
+
+#setwd(paste0(public, '/reports/superintendent'))
+
+#####
+# LOAD PACKAGES
+#####
+library(xtable)
+library(dplyr)
+
+#####
+# SET SEED
+#####
+set.seed(1)
+
+#####
+# READ IN HELPER FUNCTIONS
+#####
+source(paste0(public, "/reports/superintendent/helpers.R"))
+@
+
+\newgeometry{margin = 3.5cm}
+
+\section*{Summary}
+Thanks to an innovative partnership between Alachua County's Public Schools (ACPS), its Health Department (ACHD), its University (UF) and the community at large, Alachua is leading the nation in the fight against influenza.  This report covers the history of the "Control Flu" partnership, its benefits to community members, and the challenges it currently faces.  
+
+
+\tableofcontents
+
+\newgeometry{margin=2cm}
+\begin{center}
+\section*{History}
+\end{center}
+\addcontentsline{toc}{section}{History}
+\begin{multicols}{2}
+
+\setkeys{Gin}{width=0.51\textwidth}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Program inception
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Program beginnings}
+\addcontentsline{toc}{subsection}{Program beginnings}
+
+\emph{Control Flu} began in the 2006-7 school year, as a collaboration between the Florida Department of Health in Alachua County (FDOH-Alachua), the University of Florida and Alachua County Public Schools.  After a brief hiatus in the 2007-8 and 2008-9 school years, \emph{Control Flu} returned in 2009-10. In 2010, \emph{Control Flu} began immunizing at private schools.  Since the program's inception, the number of schools at which \emph{Control Flu} has offered immunization has progressively grown.
+
+
+%\begin{center}
+%\includegraphics[height=200, width=280]{schools_with_program.pdf}
+% \begin{figure}
+<<fig=TRUE, height=5, echo=FALSE>>=
+library(RCurl)
+library(dplyr)
+my_link <- "https://docs.google.com/spreadsheets/d/1icEDpqkJVNuvGLV6GcULuvfVK0healPyPep3enHkceE/export?gid=0&format=csv"
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+my_csv <- getURL(my_link)
+df <- read.csv(textConnection(my_csv))
+ts <- df %>% group_by(year) %>%
+  summarise(nSchools = n(),
+            nStudents = sum(doses))
+# # write.csv(ts, 'ts.csv')
+# ts <- read.csv('ts.csv')
+
+bp <- barplot(ts$nStudents,
+        names.arg=paste0(as.character(ts$year), "-", ts$year + 1 - 2000),
+        cex.names=0.8,
+        border=FALSE,
+        yaxt="n",
+        xlab="Year",
+        ylab="Doses (1000s)",
+        col=adjustcolor("darkgreen", alpha.f=0.4),
+        main="Doses administered",
+        ylim = c(0, max(ts$nStudents) * 1.05))
+axis(side=2, at = seq(0,100000,2000), labels=seq(0,100000,2000)/1000, las=1)
+abline(h=0)
+text(bp[,1], ts$nStudents,
+     labels=round(ts$nStudents, 0),
+     pos=1)
+abline(v=1.3, col=adjustcolor("darkred", alpha.f=0.3), lwd=3)
+
+box("plot")
+
+@
+% \end{figure}
+%\end{center}
+
+
+
+
+
+
+
+
+
+\newgeometry{margin=2cm}
+\begin{center}
+\section*{Risk factors for non-return of consent form}
+\end{center}
+\addcontentsline{toc}{section}{Risk factors for non-return of consent form}
+\begin{multicols}{2}
+
+\setkeys{Gin}{width=0.51\textwidth}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRADE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Grade}
+\addcontentsline{toc}{subsection}{Grade}
+
+A student's grade is a signficiant predictor of that student's likelihood of both consent form return and immunization.  The direction of this relationship is complex: students' consent form return and immunization rates remain largely constant through elementary school before beginning a sharp decline through middle and high school.  Of note, an elementary schooler is 2.5-3 times more likely than a high-schooler to return a consent form, and approximately 3 times as likely to get immunized (all locations).  
+
+\begin{center}
+<<fig = TRUE>>=
+
+# Get breakdown by grade
+grade_table <- dat %>%
+  filter(!is.na(intern)) %>%
+  group_by(grade) %>%
+  summarise(cf_returned = sum(cf == "Yes", na.rm = TRUE),
+            cf_not_returned = sum(cf == "No", na.rm = TRUE),
+            cf_denom = sum(cf %in% c("Yes", "No")),
+            imm = sum(v == "Yes", na.rm = TRUE),
+            non_imm = sum(v == "No", na.rm = TRUE))
+
+# Calculate a percentage returned
+grade_table$cf_returned_p <- grade_table$cf_returned / grade_table$cf_denom * 100
+
+# Order 
+#grade_table <- grade_table[order(grade_table$cf_returned_p),]
+
+# Rearrange rows
+grade_table <- rbind(grade_table[grade_table$grade == "KG",],
+                     grade_table[grade_table$grade != "KG",])
+
+# Calculate imm rate by grade
+grade_table$imm_p <- grade_table$imm / grade_table$cf_denom * 100
+
+
+# Compute confidence intervals and add those as well
+grade_table$lb <- simpasym(n = grade_table$cf_denom,
+                          p = grade_table$cf_returned_p * 0.01)$lb * 100
+grade_table$ub <- simpasym(n = grade_table$cf_denom,
+                          p = grade_table$cf_returned_p * 0.01)$ub * 100
+
+# Compute confidence intervals for imm rate
+grade_table$imm_lb <- simpasym(n = grade_table$cf_denom,
+                          p = grade_table$imm_p  * 0.01)$lb * 100
+grade_table$imm_ub <- simpasym(n = grade_table$cf_denom,
+                          p = grade_table$imm_p  * 0.01)$ub * 100
+
+
+
+# Plot
+bar_fun(grade_table$cf_returned_p,
+        names.arg = grade_table$grade,
+        ylab = "Rate (%)",
+        xlab = "Grade",
+        col = adjustcolor("lightblue", alpha.f = 0.8),
+        border = NA,
+        cex.names = 0.76,
+        add_ci = TRUE,
+        yplus = grade_table$ub,
+        yminus = grade_table$lb,
+        text_size = 0.7,
+        round_digits = 0,
+        percent = FALSE)
+
+# Add title
+title(main = "Consent form return rate by grade")
+
+# Add legend
+legend(x = "topright",
+       fill = adjustcolor(c("lightblue", "darkred"), alpha.f = 0.6),
+       legend = c("Consent form return rate", "Immunization rate"))
+
+# Add ir to the plot
+bar_fun(grade_table$imm_p,
+        names.arg = NULL,
+        col = adjustcolor("red", alpha.f = 0.4),
+        border = NA,
+        add_ci = TRUE,
+        yplus = grade_table$imm_ub,
+        yminus = grade_table$imm_lb,
+        text_size = 0.7,
+        round_digits = 0,
+        percent = FALSE,
+        add = TRUE)
+
+
+
+@
+\end{center}
+
+Even among those that return a consent form, older students are less likely than their younger counterparts to consent to immunization.  That said, a majority of high-schoolers who return a consent form still want to be immunized.  In other words, \textbf{the drop in immunization in older age groups is primarily due to declining consent form return, not declining immunization receptivity.}   This suggests that interventions aimed at older age groups should focus first and foremost on consent form return (and secondarily on the benefits of immunization).
+
+
+\begin{center}
+<<fig = TRUE, height = 4>>=
+
+# Add percentage "yes"
+grade_table$percent_yes <- grade_table$imm / grade_table$cf_returned * 100
+bp <- barplot(1:nrow(grade_table), plot = FALSE)
+
+
+# Compute confidence intervals for percent_yes
+grade_table$percent_yes_lb <- simpasym(n = grade_table$cf_returned,
+                          p = grade_table$percent_yes  * 0.01)$lb * 100
+grade_table$percent_yes_ub <- simpasym(n = grade_table$cf_returned,
+                          p = grade_table$percent_yes  * 0.01)$ub * 100
+
+
+# Plot
+bar_fun(grade_table$percent_yes,
+        names.arg = grade_table$grade,
+        ylab = "Percent 'yes' among CF returners",
+        xlab = "Grade",
+        col = adjustcolor("lightblue", alpha.f = 0.8),
+        border = NA,
+        cex.names = 0.76,
+        add_ci = TRUE,
+        yplus = grade_table$percent_yes_ub,
+        yminus = grade_table$percent_yes_lb,
+        text_size = 0.7,
+        round_digits = 0,
+        percent = FALSE)
+
+# Add title
+title(main = "Percent 'yes' among consent form returners by grade",
+      cex.main = 0.8)
+
+# # Add legend
+# legend(x = "bottomleft",
+#        lty = 1,
+#        col = adjustcolor("darkred", alpha.f = 0.3),
+#        legend = "95 % confidence interval")
+
+@
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RACE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Race}
+\addcontentsline{toc}{subsection}{Race}
+
+Like age, a student's race is also a significant predictor of consent form return and immunization.  More than three quarters of students of Asian origin return a consent form, whereas fewer than half of African-American students do.  
+
+\begin{center}
+<<fig = TRUE>>=
+
+# Get breakdown of cfrr by race
+race_table <- dat %>%
+  filter(!is.na(intern)) %>%
+  group_by(race) %>%
+  summarise(cf_returned = sum(cf == "Yes", na.rm = TRUE),
+            cf_not_returned = sum(cf == "No", na.rm = TRUE),
+            cf_denom = sum(cf %in% c("Yes", "No")),
+            imm = sum(v == "Yes", na.rm = TRUE),
+            non_imm = sum(v == "No", na.rm = TRUE))
+
+# Calculate a percentage returned
+race_table$cf_returned_p <- race_table$cf_returned / race_table$cf_denom * 100
+
+# Order 
+race_table <- race_table[order(race_table$cf_returned_p),]
+
+# Compute confidence intervals and add those as well
+race_table$lb <- simpasym(n = race_table$cf_denom,
+                          p = race_table$cf_returned_p * 0.01)$lb * 100
+race_table$ub <- simpasym(n = race_table$cf_denom,
+                          p = race_table$cf_returned_p * 0.01)$ub * 100
+
+# Calculate imm rate by race
+race_table$imm_p <- race_table$imm / race_table$cf_denom * 100
+
+# Compute confidence intervals for imm
+race_table$imm_lb <- simpasym(n = race_table$cf_denom,
+                          p = race_table$imm_p * 0.01)$lb * 100
+race_table$imm_ub <- simpasym(n = race_table$cf_denom,
+                          p = race_table$imm_p * 0.01)$ub * 100
+
+# Plot
+bar_fun(race_table$cf_returned_p,
+        names.arg = race_table$race,
+        ylab = "Rate (%)",
+        xlab = "Race",
+        col = adjustcolor("lightblue", alpha.f = 0.8),
+        border = NA,
+        cex.names = 0.76,
+        add_ci = TRUE,
+        yplus = race_table$ub,
+        yminus = race_table$lb)
+
+# Add title
+title(main = "Consent form return rate by race")
+
+# Add legend
+legend(x = "topleft",
+       fill = adjustcolor(c("lightblue", "darkred"), alpha.f = 0.6),
+       legend = c("Consent form return rate", "Immunization rate"))
+
+
+# Add ir to the plot
+bar_fun(race_table$imm_p,
+        names.arg = NULL,
+        col = adjustcolor("red", alpha.f = 0.4),
+        border = NA,
+        add_ci = TRUE,
+        yplus = race_table$imm_ub,
+        yminus = race_table$imm_lb,
+        text_size = 0.7,
+        round_digits = 0,
+        percent = FALSE,
+        add = TRUE)
+
+@
+\end{center}
+
+Groups with the lowest immunization rates are \emph{not} necessarily adverse to immunization.  On the contrary, among consent form returners, students who are Black, Hispanic or Multiracial have very similar rates of "yes" as their white counterparts.  In other words, \textbf{consent form non-return / loss (not vaccine aversion) explains most of the difference in immunization rates between races.}\footnote{The exception to this is students of Asian origin, who achieve both the highest consent form return rate, as well as the highest percentage of "yes" among consent form returners.  Qualitative research (focus groups or surveys) may be useful in assessing what factors motivate Asian families to be so receptive to vaccination, as findings could help guide interventions for students of other races.}
+
+\begin{center}
+<<fig = TRUE>>=
+# Add percentage "yes"
+race_table$percent_yes <- race_table$imm / race_table$cf_returned * 100
+bp <- barplot(1:nrow(race_table), plot = FALSE)
+
+
+# Compute confidence intervals for percent_yes
+race_table$percent_yes_lb <- simpasym(n = race_table$cf_returned,
+                          p = race_table$percent_yes  * 0.01)$lb * 100
+race_table$percent_yes_ub <- simpasym(n = race_table$cf_returned,
+                          p = race_table$percent_yes  * 0.01)$ub * 100
+
+
+
+# Plot
+bar_fun(race_table$percent_yes,
+        names.arg = race_table$race,
+        ylab = "Percent 'yes' among CF returners",
+        xlab = "Race",
+        col = adjustcolor("lightblue", alpha.f = 0.8),
+        border = NA,
+        cex.names = 0.76,
+        add_ci = TRUE,
+        yplus = race_table$percent_yes_ub,
+        yminus = race_table$percent_yes_lb,
+        text_size = 0.7,
+        round_digits = 0,
+        percent = FALSE)
+
+# Add title
+title(main = "Percent 'yes' among consent form returners by race",
+      cex.main = 0.8)
+
+
+@
+\end{center}
+
+The data suggest that non-Asian minority students would have similar levels of immunization as White students \emph{if} similar levels of consent form return could be achieved.  In other words, Black students are nearly as likely to say "yes" to immunization as White students, but far less likely to return a consent form.   Given this reality, efforts at raising immunization rates among minority students should focus on consent form return (rather than education regarding vaccination's benefits). 
+
+\vfill
+\columnbreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SOCIOECONOMIC STATUS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Socioeconomic status}
+\addcontentsline{toc}{subsection}{Socioeconomic status}
+Students who qualify for free/reduced lunch are far less likely to return a consent form than their counterparts.
+
+
+\begin{center}
+<<fig = TRUE, height = 5>>=
+
+# Get breakdown of cfrr by ses
+ses_table <- dat %>%
+  filter(!is.na(intern)) %>%
+  group_by(lunch) %>%
+  summarise(cf_returned = sum(cf == "Yes", na.rm = TRUE),
+            cf_not_returned = sum(cf == "No", na.rm = TRUE),
+            cf_denom = sum(cf %in% c("Yes", "No")),
+            imm = sum(v == "Yes", na.rm = TRUE),
+            non_imm = sum(v == "No", na.rm = TRUE))
+
+# Remove the NA row
+ses_table <- ses_table[which(!is.na(ses_table$lunch)),]
+
+# Calculate a percentage returned
+ses_table$cf_returned_p <- ses_table$cf_returned / ses_table$cf_denom * 100
+
+# Order 
+ses_table <- ses_table[order(ses_table$cf_returned_p),]
+
+# Compute confidence intervals and add those as well
+ses_table$lb <- simpasym(n = ses_table$cf_denom,
+                          p = ses_table$cf_returned_p * 0.01)$lb * 100
+ses_table$ub <- simpasym(n = ses_table$cf_denom,
+                          p = ses_table$cf_returned_p * 0.01)$ub * 100
+
+# Calculate imm rate by ses
+ses_table$imm_p <- ses_table$imm / ses_table$cf_denom * 100
+
+# Compute confidence intervals for imm
+ses_table$imm_lb <- simpasym(n = ses_table$cf_denom,
+                          p = ses_table$imm_p * 0.01)$lb * 100
+ses_table$imm_ub <- simpasym(n = ses_table$cf_denom,
+                          p = ses_table$imm_p * 0.01)$ub * 100
+
+# Plot
+bar_fun(ses_table$cf_returned_p,
+        names.arg = c("Free/reduced lunch", "Not free/reduced lunch"),
+        ylab = "Consent form return rate",
+        xlab = "Socioeconomic status",
+        col = adjustcolor("lightblue", alpha.f = 0.8),
+        border = NA,
+        cex.names = 0.76,
+        add_ci = TRUE,
+        yplus = ses_table$ub,
+        yminus = ses_table$lb)
+
+# Add title
+title(main = "Consent form return rate by socioeconomic status")
+
+# Add legend
+# Add legend
+legend(x = "topleft",
+       fill = adjustcolor(c("lightblue", "darkred"), alpha.f = 0.6),
+       legend = c("Consent form return rate", "Immunization rate"))
+
+
+# Add ir to the plot
+bar_fun(ses_table$imm_p,
+        names.arg = NULL,
+        col = adjustcolor("red", alpha.f = 0.4),
+        border = NA,
+        add_ci = TRUE,
+        yplus = ses_table$imm_ub,
+        yminus = ses_table$imm_lb,
+        text_size = 0.7,
+        round_digits = 0,
+        percent = FALSE,
+        add = TRUE)
+
+@
+\end{center}
+
+That said, when they \emph{do} return a consent form, students on free/reduced lunch are only \emph{slightly} less likely to consent to vaccination than their peers.  
+
+\begin{center}
+<<fig = TRUE, height = 4.5>>=
+# Add percentage "yes"
+ses_table$percent_yes <- ses_table$imm / ses_table$cf_returned * 100
+bp <- barplot(1:nrow(ses_table), plot = FALSE)
+
+
+# Compute confidence intervals for percent_yes
+ses_table$percent_yes_lb <- simpasym(n = ses_table$cf_returned,
+                          p = ses_table$percent_yes  * 0.01)$lb * 100
+ses_table$percent_yes_ub <- simpasym(n = ses_table$cf_returned,
+                          p = ses_table$percent_yes  * 0.01)$ub * 100
+
+
+
+# Plot
+bar_fun(ses_table$percent_yes,
+        ylab = "Percent 'yes' among consent form returners",
+        names.arg = c("Free/reduced lunch", "Not free/reduced lunch"),
+        xlab = "Socioeconomic status",        
+        col = adjustcolor("lightblue", alpha.f = 0.8),
+        border = NA,
+        cex.names = 0.76,
+        add_ci = TRUE,
+        yplus = ses_table$percent_yes_ub,
+        yminus = ses_table$percent_yes_lb,
+        text_size = 0.7,
+        round_digits = 0,
+        percent = FALSE)
+
+# Add title
+title(main = "Percent 'yes' among consent form returners by SES",
+      cex.main = 0.8)
+
+
+@
+\end{center}
+
+In Alachua County, socioeconomic status is largely confounded with race. Students of Asian origin are less likely than white students to qualify for free/reduced lunch, whereas students of all other races/ethnicities are more likely than their white students to qualify. That said, even after statistical "adjustment" for race and socioeconomic status, being Black, Hispanic or on free/reduced lunch are \emph{independent} risk factors for non-immunization and consent form non-return (more on statistical adjustment in the next section).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SCHOOL IMMUNIZATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newgeometry{margin = 2cm}
+\end{multicols}
+\begin{center}
+\section*{2013-14 school evaluation: immunization}
+\end{center}
+\addcontentsline{toc}{section}{2013-14 school evaluation: immunization}
+\begin{multicols}{2}
+
+\setkeys{Gin}{width=0.49\textwidth}
+
+\subsection*{Summary}
+\addcontentsline{toc}{subsection}{Summary}
+By calculating an "immunization performance score" which takes into account a school's racial, socioeconomic and age make-up, we can get a better idea of Control Flu program performance at the school level. \\
+
+
+
+A direct comparison of schools' immunization and consent form return rates would be inappropriate given schools' different sociodemographic make-ups, especially in light of the differences found in the previous section.  Rather than a "direct" comparison, we can use multivariate modeling to compare a school's "expected" vs. "observed" consent form return rate (CFRR) and immunization rate (IR).  Schools whose observed (real) values differ significantly from their "expected" rates (given their sociodemographic make-up) can be considered to be under- or over-achieving.  \\
+
+\subsection*{Risk factors for non-immunization}
+\addcontentsline{toc}{subsection}{Risk factors for non-immunization}
+
+
+For a first pass, we will construct a multivariate logistic regression model to assess a student's likelihood of immunization, given their race, free/reduced lunch status and age, using only data from the 2011-12 and 2012-13 school years.  The following table shows the results of this model, converted to odds ratios, with the "baseline" group being white, kindergarten-aged, non-free lunch students. \\ 
+
+
+The "odds ratio" can be interpreted as the likelihood of \emph{not} getting immunized, relative to the baseline group.  Here are two examples of interpretation of the  table :\begin{enumerate}
+\item "Holding constant other factors (grade and socioeconomic status), black students are 1.55 more likely than white students to \textbf{not} get immunized against influenza."
+\item "After adjustment for other factors (race and socioeconomic status), 12th graders are 4.83 times more likely to \textbf{not} return a consent form than their kindergarten counterparts."
+\end{enumerate}
+
+\vfill
+\columnbreak
+
+<<>>=
+fit <- glm(!imm ~
+             race + 
+             grade +
+             lunch,
+           data = dat[which(dat$year < 2013 &
+                              !is.na(dat$race) &
+                              !is.na(dat$grade) &
+                              !is.na(dat$schoolName) &
+                              !is.na(dat$lunch)),],
+           family = binomial("logit"))
+# Convert to data frame
+overall_fit <- data.frame(exp(coef(fit)))
+overall_fit <- data.frame("Factor" = row.names(overall_fit),
+                          "Odds ratio" = exp(coef(fit)),
+                          "P-value" = summary(fit)$coefficients[,4] )
+# Clean up a bit
+overall_fit$Factor <- gsub("race", "", overall_fit$Factor)
+overall_fit$Factor <- gsub("grade", "Grade ", overall_fit$Factor)
+overall_fit$Factor <- gsub("lunchfree", "Free lunch", overall_fit$Factor)
+
+# Clean up column names
+names(overall_fit)[c(2,3)] <- c("Odds ratio", "P-value")
+
+# Clean up p-values
+overall_fit[,"P-value"] <- round(overall_fit[,"P-value"], digits = 4)
+
+# Remove the intercept row
+overall_fit <- overall_fit[-1,]
+
+@
+
+\begin{table}[H]
+<<results=tex, eval=TRUE>>=
+library(xtable)
+print(xtable(overall_fit, caption = "Factors for immunization"), size = "\\small",
+      include.rownames = FALSE, caption.placement = 'bottom')
+@
+\end{table}
+
+
+Having established risk factors for non-immunization at the \emph{student-}level, we can procede to calculate "expected" immunization rates at the school level.  The table on the following page breaks down each school's 2013-14 immunization numbers; the product of a school's "observed" and "expected" rates yields a performance score.  Schools with greater than 1 performed better than expected, whereas schools with lower than 1 performed worse than expected in terms of total immunized students.  \\
+
+When reading the following table, keep in mind that (a) these data \emph{include} vaccinations administered by private practitioners and (b) numbers may differ slightly from previous immunization rate tables, since many data points were excluded from analysis due to quality and compatability issues.\footnote{"Fuzzy" matching algorithms were written specifically for the purpose of matching students from ACPS' database to Florida Shots data, but variations in spelling and mistakes make this task imperfect at best.}
+
+
+<<>>=
+# Get student-level predictions
+dat$predicted_imm <- predict(fit, 
+             newdata = dat,
+             type = "response")
+
+# Get school level predictions
+school_imm_table <- dat %>%  
+  filter(
+           !is.na(race) &
+           !is.na(grade) &
+           !is.na(schoolName) &
+           !is.na(lunch) &
+           !is.na(predicted_imm) &
+           year == 2013) %>%
+  group_by(schoolName) %>%
+  summarise(students = n(),
+            predicted_imm = sum(1 - predicted_imm),
+            observed_imm = sum(imm))
+
+# Remove small schools
+school_imm_table <- 
+  school_imm_table[which(school_imm_table$students > 100),]
+
+# Calculate performance school
+school_imm_table$imm_performance <-
+  school_imm_table$observed_imm / 
+  school_imm_table$predicted_imm
+
+# Order by performance school
+school_imm_table <- school_imm_table[rev(order(school_imm_table$imm_performance)),]
+
+# Make dataframe
+school_imm_table <- data.frame(school_imm_table)
+
+# Clean school names
+school_imm_table$schoolName <- 
+  gsub("SCHOOL", "", school_imm_table$schoolName  )
+# Clean column names
+names(school_imm_table) <- c("SCHOOL", "STUDENTS", "EXPECTED", "OBSERVED",
+                                   "SCORE")
+# Alachua learning center is too long
+school_imm_table$SCHOOL[which(school_imm_table$SCHOOL == "ALACHUA LEARNING CENTER ELEMENTARY")] <- "ALACHUA LEARNING CENTER"
+
+@
+
+\newgeometry{margin=3cm}
+\end{multicols}
+\setkeys{Gin}{width=\textwidth}
+
+<<fig = TRUE, height = 4>>=
+par(mar = c(4,4,0,4))
+par(oma = c(0,0,3,0))
+bp <- barplot(rev(school_imm_table$SCORE), 
+        horiz = TRUE,
+        border = NA,
+        col = adjustcolor("lightblue", alpha.f = 0.8),
+        names.arg = NA,
+        space = 1.2,
+        cex.axis = 0.5,
+        xlab = NA,
+        xlim = c(0, 1.8))
+title(main = "Adjusted immunization performance score", outer = TRUE)
+text(x = rev(school_imm_table$SCORE),
+     y = bp[,1],
+     labels = rev(gsub("SCHOOL", "", 
+                       school_imm_table$SCHOOL)),
+     cex = 0.3,
+     pos = 2)
+# mtext(text = (rev(gsub("SCHOOL|HIGH|MIDDLE|ELEMENTARY", "", 
+#                        school_imm_table$SCHOOL))),
+#       side = 2,
+#       line = -4,
+#       at = bp[,1],
+#       las = 1,
+#       cex = 0.3)
+abline(v = 1, 
+       col = adjustcolor("darkred", alpha.f = 0.3), lwd = 2)
+box("plot")
+@
+
+
+\begin{table}[H]
+<<results=tex, eval=TRUE>>=
+library(xtable)
+print(xtable(school_imm_table, caption = "Sociodemographic-adjusted immunization performance scores by school"), size = "\\tiny",
+      include.rownames = FALSE, caption.placement = 'bottom')
+@
+\end{table}
+
+
+
+\newgeometry{margin=2cm}
+\begin{multicols}{2}
+\setkeys{Gin}{width=0.51\textwidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SCHOOL CONSENT FORM RETURN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newgeometry{margin = 2cm}
+\end{multicols}
+\begin{center}
+\section*{2013-14 school evaluation: consent form return}
+\end{center}
+\addcontentsline{toc}{section}{2013-14 school evaluation: consent form return}
+\begin{multicols}{2}
+
+\setkeys{Gin}{width=0.49\textwidth}
+
+\subsection*{Summary}
+\addcontentsline{toc}{subsection}{Summary}
+As a complement to the "immunization performance score", we can calculate a "consent form performance score" which adjusts for each school's racial, socioeconomic and age make-up.  This score can give an idea of where we are missing opportunities (ie, the socioeconomic and demographic of a student body suggest high consent form return, but performance was low). \\
+
+
+\subsection*{Risk factors for consent form loss}
+\addcontentsline{toc}{subsection}{Risk factors for consent form loss}
+
+The previous two pages outlined program performance using immunization rate as the outcome measure.  Though helpful, immunization rates (adjusted or raw) are not, by themselves, ideal for evaluating program efforts.  Given that vaccination aversion is largely outside of the school (ie, a family may be philosophically opposed to all vaccines), an alternative indicator of program performance at the school level would be \emph{consent form return rate}. \\
+
+Modeling on 2011-12 and 2012-13 data, we can estimate the adjusted odds for consent form return.  These can be interpreted as the likelihood of \emph{not} returning a consent form, relative to the baseline group (again, "baseline" consists of students who are white, not on free/reduced lunch, and of kindergarten age). \\
+
+
+Here are two specific examples of how the odds ratios to the upper right can be interpreted :\begin{enumerate}
+\item "Holding constant other factors (grade and socioeconomic status), black students are 2.22 more likely than white students to  \textbf{not} return a consent form."
+\item "After adjustment for other factors (race and grade), students who qualify for free lunch are 1.57 times more likely to \textbf{not} return a consent form than their non-free lunch counterparts."
+
+<<>>=
+fit <- glm(cf == "No" ~
+             race + 
+             grade +
+             lunch,
+           data = dat[which(dat$year < 2013 &
+                              !is.na(dat$intern) &
+                              !is.na(dat$race) &
+                              !is.na(dat$grade) &
+                              !is.na(dat$schoolName) &
+                              !is.na(dat$lunch)),],
+           family = binomial("logit"))
+# Convert to data frame
+overall_fit <- data.frame(exp(coef(fit)))
+overall_fit <- data.frame("Factor" = row.names(overall_fit),
+                          "Odds ratio" = exp(coef(fit)),
+                          "P-value" = summary(fit)$coefficients[,4] )
+# Clean up a bit
+overall_fit$Factor <- gsub("race", "", overall_fit$Factor)
+overall_fit$Factor <- gsub("grade", "Grade ", overall_fit$Factor)
+overall_fit$Factor <- gsub("lunchfree", "Free lunch", overall_fit$Factor)
+
+# Clean up column names
+names(overall_fit)[c(2,3)] <- c("Odds ratio", "P-value")
+
+# Clean up p-values
+overall_fit[,"P-value"] <- round(overall_fit[,"P-value"], digits = 4)
+
+# Remove the intercept row
+overall_fit <- overall_fit[-1,]
+
+@
+
+\begin{table}[H]
+<<results=tex, eval=TRUE>>=
+library(xtable)
+print(xtable(overall_fit, caption = "Factors for consent form return"), size = "\\small",
+      include.rownames = FALSE, caption.placement = 'bottom')
+@
+\end{table}
+
+Having now estimated independent risk factors for consent form loss, we can estimate a school's "expected" consent form return rate for the 2013-14 school year, and compare the "expected" with the "observed" rates (next page).  It should come as no surprise that schools with much higher than expected consent form return rates (Loften and Newberry High, for example) have higher than expected immunization rates.  By the same token, special attention should be paid to schools with higher than expected consent form return rates, but relatively low immunization (such as Santa Fe).  This phenomenon can be explained by community "receptivity" towards vaccination, and in those schools a drive for consent form return should also include education and outreach regarding vaccination's benefits (more on this on page 9).  \\
+
+As always, in inerpreting the following table, please note that (a) small schools have been excluded and (b) due to missing, inconsistent data quality, these numbers will not match perfectly with program-collected data.
+
+<<>>=
+# Get student-level predictions
+dat$predicted_cf <- predict(fit, 
+             newdata = dat,
+             type = "response")
+
+# Get school level predictions
+school_cf_table <- dat %>%  
+  filter(!is.na(intern) &
+           !is.na(race) &
+           !is.na(grade) &
+           !is.na(schoolName) &
+           !is.na(lunch) &
+           !is.na(predicted_cf) &
+           year == 2013) %>%
+  group_by(schoolName) %>%
+  summarise(students = n(),
+            predicted_cf = sum(1 - predicted_cf),
+            observed_cf = sum(cf == "Yes"))
+
+# Remove small schools
+school_cf_table <- 
+  school_cf_table[which(school_cf_table$students > 100),]
+
+# Calculate performance school
+school_cf_table$cf_performance <-
+  school_cf_table$observed_cf / 
+  school_cf_table$predicted_cf
+
+# Order by performance school
+school_cf_table <- school_cf_table[rev(order(school_cf_table$cf_performance)),]
+
+# Make dataframe
+school_cf_table <- data.frame(school_cf_table)
+
+# Clean school names
+school_cf_table$schoolName <- 
+  gsub("SCHOOL", "", school_cf_table$schoolName  )
+# Clean column names
+names(school_cf_table) <- c("SCHOOL", "STUDENTS", "EXPECTED", "OBSERVED",
+                                   "SCORE")
+
+@
+
+\end{multicols}
+\setkeys{Gin}{width=\textwidth}
+
+
+\newgeometry{margin=3cm}
+\end{multicols}
+\setkeys{Gin}{width=\textwidth}
+
+<<fig = TRUE, height = 4>>=
+par(mar = c(4,4,0,4))
+par(oma = c(0,0,3,0))
+bp <- barplot(rev(school_cf_table$SCORE), 
+        horiz = TRUE,
+        border = NA,
+        col = adjustcolor("lightblue", alpha.f = 0.8),
+        names.arg = NA,
+        space = 1.2,
+        cex.axis = 0.5,
+        xlab = NA,
+        xlim = c(0, 2.05))
+title(main = "Adjusted CF performance score", outer = TRUE)
+text(x = rev(school_cf_table$SCORE),
+     y = bp[,1],
+     labels = rev(gsub("SCHOOL", "", 
+                       school_cf_table$SCHOOL)),
+     cex = 0.3,
+     pos = 2)
+abline(v = 1, 
+       col = adjustcolor("darkred", alpha.f = 0.3), lwd = 2)
+box("plot")
+@
+
+
+\begin{table}[H]
+<<results=tex, eval=TRUE>>=
+library(xtable)
+print(xtable(school_cf_table, caption = "Sociodemographic-adjusted consent form performance scores by school"), size = "\\tiny",
+      include.rownames = FALSE, caption.placement = 'bottom')
+@
+\end{table}
+
+Of note in the above chart / table, high schools did much better than expected in 2013/14.  Also, the fact that only three schools achieved "lower than expected" consent form return rates is evidence of an overall trend towards higher consent form return.
+
+\begin{center}
+<<>>=
+
+# Get breakdown of cfrr by school
+school_table <- dat %>%
+  filter(!is.na(intern)) %>%
+  group_by(schoolName) %>%
+  summarise(cf_returned = sum(cf == "Yes", na.rm = TRUE),
+            cf_not_returned = sum(cf == "No", na.rm = TRUE),
+            cf_denom = sum(cf %in% c("Yes", "No")),
+            imm = sum(v == "Yes", na.rm = TRUE),
+            non_imm = sum(v == "No", na.rm = TRUE))
+
+
+# Calculate a percentage returned
+school_table$cf_returned_p <- school_table$cf_returned / school_table$cf_denom * 100
+
+# Order 
+school_table <- school_table[order(school_table$cf_returned_p),]
+
+# Compute confidence intervals and add those as well
+school_table$lb <- simpasym(n = school_table$cf_denom,
+                          p = school_table$cf_returned_p * 0.01)$lb * 100
+school_table$ub <- simpasym(n = school_table$cf_denom,
+                          p = school_table$cf_returned_p * 0.01)$ub * 100
+
+# Calculate imm rate by school
+school_table$imm_p <- school_table$imm / school_table$cf_denom * 100
+
+# Compute confidence intervals for imm
+school_table$imm_lb <- simpasym(n = school_table$cf_denom,
+                          p = school_table$imm_p * 0.01)$lb * 100
+school_table$imm_ub <- simpasym(n = school_table$cf_denom,
+                          p = school_table$imm_p * 0.01)$ub * 100
+
+
+
+
+
+@
+\end{center}
+
+<<>>=
+# Add percentage "yes"
+school_table$percent_yes <- school_table$imm / school_table$cf_returned * 100
+bp <- barplot(1:nrow(school_table), plot = FALSE)
+
+
+# Compute confidence intervals for percent_yes
+school_table$percent_yes_lb <- simpasym(n = school_table$cf_returned,
+                          p = school_table$percent_yes  * 0.01)$lb * 100
+school_table$percent_yes_ub <- simpasym(n = school_table$cf_returned,
+                          p = school_table$percent_yes  * 0.01)$ub * 100
+
+
+
+
+
+
+
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Immunization receptivity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newgeometry{margin = 2cm}
+\begin{center}
+\section*{2013-14 School evaluation: immunization receptivity}
+\end{center}
+\addcontentsline{toc}{section}{2013-14 School evaluation: immunization receptivity}
+\begin{multicols}{2}
+\setkeys{Gin}{width=0.51\textwidth}
+
+
+\subsection*{Summary}
+\addcontentsline{toc}{subsection}{Summary}
+
+"Immunization receptivity" is the likelihood of saying "yes" on the consent form, given its return.  Though imperfect, it is a metric of how receptive / averse populations are to the concept of influenza immunization itself (independent of consent form return rate).  Hispanic students, students on free/reduced lunch, and students from rural schools appear to have the lowest levels of immunization receptivity.
+
+\subsection*{Risk factors for immunization aversion}
+\addcontentsline{toc}{subsection}{Risk factors for immunization aversion}
+
+
+The following table provides adjusted odds ratios for saying "No" on a consent form, relative to the baseline group of white, non-free lunch, kindergarten-aged students. Here are two examples of how these odds ratios can be interpreted :\begin{enumerate}
+\item "Holding constant other factors (grade and socioeconomic status), black students are only 1.12 more likely than white students to \textbf{not} consent to immunization."
+\item "After adjustment for other factors (race and grade), students on free/reduced lunch are 1.48 times more likely to \textbf{not} consent to immunization than their non-free lunch counterparts."
+\end{enumerate}
+
+
+
+<<>>=
+fit <- glm(!imm ~
+             race + 
+             grade +
+             year + 
+             lunch,
+           data = dat[which(dat$year < 2013 &
+                              !is.na(dat$intern) &
+                              !is.na(dat$race) &
+                              !is.na(dat$grade) &
+                              !is.na(dat$schoolName) &
+                              !is.na(dat$lunch) &
+                              dat$cf == "Yes"),],
+           family = binomial("logit"))
+# Convert to data frame
+overall_fit <- data.frame(exp(coef(fit)))
+overall_fit <- data.frame("Factor" = row.names(overall_fit),
+                          "Odds ratio" = exp(coef(fit)),
+                          "P-value" = summary(fit)$coefficients[,4] )
+# Clean up a bit
+overall_fit$Factor <- gsub("race", "", overall_fit$Factor)
+overall_fit$Factor <- gsub("grade", "Grade ", overall_fit$Factor)
+overall_fit$Factor <- gsub("lunchfree", "Free lunch", overall_fit$Factor)
+
+# Clean up column names
+names(overall_fit)[c(2,3)] <- c("Odds ratio", "P-value")
+
+# Clean up p-values
+overall_fit[,"P-value"] <- round(overall_fit[,"P-value"], digits = 4)
+
+# Remove the intercept row
+overall_fit <- overall_fit[-1,]
+
+# Remove the year row
+overall_fit <- overall_fit[which(overall_fit$Factor != "year"),]
+
+@
+
+\begin{table}[H]
+<<results=tex, eval=TRUE>>=
+library(xtable)
+print(xtable(overall_fit, caption = "Factors for immunization among CF returners"), size = "\\small",
+      include.rownames = FALSE, caption.placement = 'bottom')
+@
+\end{table}
+
+<<>>=
+# Get student-level predictions
+dat$predicted_imm <- predict(fit, 
+             newdata = dat,
+             type = "response")
+
+# Get school level predictions
+school_imm_table <- dat %>%  
+  filter(cf == "Yes" &
+    !is.na(intern) &
+           !is.na(race) &
+           !is.na(grade) &
+           !is.na(schoolName) &
+           !is.na(lunch) &
+           !is.na(predicted_cf) &
+           year == 2013) %>%
+  group_by(schoolName) %>%
+  summarise(students = n(),
+            predicted_imm = sum(1 - predicted_imm),
+            observed_imm = sum(imm))
+
+# Remove small schools
+school_imm_table <- 
+  school_imm_table[which(school_imm_table$students > 100),]
+
+# Calculate performance school
+school_imm_table$imm_performance <-
+  school_imm_table$observed_imm / 
+  school_imm_table$predicted_imm
+
+# Order by performance school
+school_imm_table <- school_imm_table[rev(order(school_imm_table$imm_performance)),]
+
+# Make dataframe
+school_imm_table <- data.frame(school_imm_table)
+
+# Clean school names
+school_imm_table$schoolName <- 
+  gsub("SCHOOL", "", school_imm_table$schoolName  )
+# Clean column names
+names(school_imm_table) <- c("SCHOOL", "STUDENTS", "EXPECTED", "OBSERVED",
+                                   "SCORE")
+
+@
+\end{multicols}
+
+
+\setkeys{Gin}{width=1\textwidth}
+
+\begin{table}[H]
+<<results=tex, eval=TRUE>>=
+library(xtable)
+print(xtable(school_imm_table, caption = "Sociodemographic- and CFRR-adjusted immunization performance scores by school"), size = "\\tiny",
+      include.rownames = FALSE, caption.placement = 'bottom')
+@
+\end{table}
+
+
+Of note in the above table, rural schools (Sante Fe, Hawthorne, Waldo, etc.) appear to have lower levels of immunization receptivity, relative to their urban and semi-urban counterparts.  Schools with a low immunization receptivity score can be expected to have lagging immunization rates, even if high consent form return rates were achieved.  Schools with the lowest immunization receptivity scores would likely benefit from educational interventions regarding facts and health benefits of flu immunization. It may advisable to target such interventions at families / parents. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newgeometry{margin = 3cm}
+\begin{center}
+\section*{Conclusion}
+\end{center}
+\addcontentsline{toc}{section}{Conclusion}
+
+\subsection*{Limitations and shortcomings}
+This analysis has several limitations and shortcomings: \begin{enumerate}
+\item Data were only complete through the 2013-14 school year.  \textbf{None} of the proceeding charts or calculations take into account the most recent flu season.
+\item Consent form return, immunization, out-of-school immunization, and sociodemographic characteristics come from 4 different datasets (respectively EPI, Control Flu program data, Florida shots and ACPS).  Though great care was taken to combine data carefully, certain points were lost at every step of the way due to spelling inconsistencies and errors.  Though this report is likely \emph{representative} of true trends, it does not contain \emph{full} data.
+\item Free/reduced lunch status is an imperfect proxy for socioeconomic status.
+\item "Unobserved" variables (parental education, experience with health care system, etc.) likely explain a good portion of consent form return and immunization likelihood. "Grading" school performance based solely on the metrics in this report, therefore, could be problematic.  
+\end{enumerate}
+
+\subsection*{Current data analysis}
+A similar evaluation of the 2014-15 flu season will be possible by March, thanks to (a) Paul Myers having secured access to Florida Shots data for this purpose and (b) Cuc Tran's team of EPI interns having digitized \emph{every} students' consent form return status.
+
+\subsection*{Recommendations}
+A fuller set of recommendations will be possible in light of the 2014-15 data analysis in March.  That said, the main take-aways from this report are: \begin{enumerate}
+\item Statistical adjustment for confounding sociodemographic factors allows for a more "fair" evaluation of program performance by school.  The same principles can (and should) be applied in analysis of 2014-15 data, as well as analysis at a smaller scale (by classroom, etc.).  
+\item "Expected" CF and immunization rates (by school, classroom or program team) can (and should) be calculated \emph{prior} to a flu season, allowing for the establishment of goals (ie, 110\% of expected).
+\item After elementary school, increasing age is associated with a linear decline in the likelihood of consent form return.
+\item Most of the variance in immunization rate can be explained by consent form return.  Differences between groups (race, socioeconomic status, age) would be greatly reduced if similar rates of consent form return were achieved.  Therefore, \textbf{consent form return} (and not immunization aversion) is the primary obstacle preventing higher immunization rates at most schools.
+\item Non-Asian minorities are far less likely than their white counterparts to return a consent form.
+\item Qualitative research may be needed to both (a) diagnose the reasons \emph{why} consent forms are not returned among certain groups and (b) assess potential culturally-relevant strategies for raising consent form return in these groups.  
+\item A small number of schools have been identified (page 9) with higher than expected levels of vaccine aversion. Outreach / educational interventions targeting parents of children at these schools may be useful in raising immunization rates.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DETAILS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newgeometry{margin = 3.5cm}
+\begin{center}
+\section*{Details}
+\end{center}
+\addcontentsline{toc}{section}{Details}
+
+The analysis contained in this report was carried out for the purpose of improving Control Flu operations, and raising pediatric immunization rates in Alachua County.  The opinions, as well as in errors, are solely of the author, and do not represent or intend to represent DOH policy or practice. \\
+
+The data used for this analysis are not available to the public.  That said, the statistical code and methods are accessible for review or replication: \\
+
+\hyperref{https://github.com/joebrew/fdoh/tree/master/public/ab\_chd\_private}. \\
+
+
+The data wrangling and analysis of this report was written in the R programming language (\Sexpr{print(version$version.string)}), and the report production was programmed in Sweave and \LaTeX{} on a \Sexpr{print(Sys.info()["sysname"])} \Sexpr{print(version$platform)} platform.\\
+
+
+
+\end{document}

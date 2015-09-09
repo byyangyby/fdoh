@@ -1,0 +1,339 @@
+
+R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> ###################
+> #SET DATE / TIME PARAMETERS
+> ###################
+> start.time <- Sys.time()
+> today <- Sys.Date()  
+> yesterday <- today - 1
+> 
+> ###################
+> #DEFINE AND SET WD
+> ###################
+> 
+> if ( Sys.info()["sysname"] == "Linux" ){
++   
++   originalwd <- paste0("/media/joebrew/JB/fdoh/private/surv/", today)
++   survwd <- "/media/joebrew/JB/fdoh/private/surv"
++   historicalwd <- "/media/joebrew/JB/fdoh/private/surv/historical"
++   giswd <- "/media/joebrew/JB/fdoh/private/surv/gis"
++   
++ } else {
++   
++   originalwd <- paste0("E:/fdoh/private/surv/", today)
++   survwd <- "E:/fdoh/private/surv"
++   historicalwd <- "E:/fdoh/private/surv/historical"
++   giswd <- "E:/fdoh/private/surv/gis"
++   
++ }
+> 
+> setwd(originalwd) 
+> 
+> 
+> ###################
+> #SET Q (HOW FAR TO GO BACK IN TS PLOTS)
+> ###################
+> q <- 15 #HOW FAR BACK DO I WANT PLOTS TO GO?
+> 
+> ###################
+> #LOAD  PACKAGES
+> ###################
+> library(RColorBrewer)
+> library(xtable)
+> library(gdata)
+gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+
+gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
+
+Attaching package: ‘gdata’
+
+The following object is masked from ‘package:stats’:
+
+    nobs
+
+The following object is masked from ‘package:utils’:
+
+    object.size
+
+> library(plyr)
+> library(maps)
+> library(mapdata)
+> library(maptools)
+Loading required package: sp
+Checking rgeos availability: TRUE
+
+Attaching package: ‘maptools’
+
+The following object is masked from ‘package:xtable’:
+
+    label
+
+> library(rJava)
+> library(OpenStreetMap)
+Loading required package: raster
+
+Attaching package: ‘raster’
+
+The following objects are masked from ‘package:gdata’:
+
+    resample, trim
+
+Loading required package: rgdal
+rgdal: version: 0.9-1, (SVN revision 518)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 1.10.1, released 2013/08/26
+Path to GDAL shared files: /usr/share/gdal/1.10
+Loaded PROJ.4 runtime: Rel. 4.8.0, 6 March 2012, [PJ_VERSION: 480]
+Path to PROJ.4 shared files: (autodetected)
+> library(rgdal)
+> library(shapefiles)
+Loading required package: foreign
+
+Attaching package: ‘shapefiles’
+
+The following objects are masked from ‘package:foreign’:
+
+    read.dbf, write.dbf
+
+> library(SemiPar)
+> library(wordcloud)
+> library(RCurl)
+Loading required package: bitops
+
+Attaching package: ‘RCurl’
+
+The following object is masked from ‘package:rJava’:
+
+    clone
+
+> library(classInt)
+> library(data.table)
+> #library(dplyr)
+> 
+> ###################
+> #SET GRAPHICAL PARAMETERS
+> ###################
+> def.par <- par(no.readonly = TRUE)
+> par(def.par)
+> 
+> ###################
+> #SET COLORS FOR SYNDROMES
+> ###################
+> symcols <- colorRampPalette(brewer.pal(8, "Set1"))(8)
+> symnames <- c("GI", "ILI","Neuro", "Rash", "Resp")
+> 
+> ###################
+> #READ IN DATA FROM ESSENCE
+> ###################
+> setwd(originalwd) 
+> 
+> alless <- read.table("alless.txt", sep= ",", header=TRUE)
+> alless2 <- read.table("alless2.txt", sep= ",", header=TRUE)
+> gi <- read.table("gi.txt", sep= ",", header=TRUE)
+> ili <- read.table("ili.txt", sep= ",", header=TRUE)
+> neuro <- read.table("neuro.txt", sep= ",", header=TRUE)
+> rash <- read.table("rash.txt", sep= ",", header=TRUE)
+> resp <- read.table("resp.txt", sep= ",", header=TRUE)
+> roi <- read.table("roi.txt", sep= ",", 
++                   header=TRUE, colClasses = "character")
+> roi2 <- read.table("roi2.txt", sep= ",", 
++                    header=TRUE, colClasses = "character")
+> 
+> 
+> ###################
+> #ADD A CCDDCATEGORY COLUMN
+> ###################
+> gi$cat <- "gi"
+> ili$cat <- "ili"
+> neuro$cat <- "neuro"
+> rash$cat <- "rash"
+> resp$cat <- "resp"
+> 
+> ###################
+> #CLEAN AND COMBINE RECORDS OF INTEREST
+> ###################
+> roi2$Sex <- as.character(roi2$Sex)
+> roi$Sex <- as.character(roi$Sex)
+> 
+> roi <- rbind(roi, roi2)
+> #roi$Sex[which(roi$Sex=="FALSE")] <- "F"
+> rm(roi2)
+> 
+> ###################
+> #READ IN BASELINE FILES
+> ###################
+> setwd(historicalwd)
+> 
+> #alless1213 <- fread("alless1213updated.csv")
+> #symOld <- fread("symOldUpdated.csv")
+> 
+> alless1213 <- read.csv("alless1213updated.csv")
+> symOld <- read.csv("symOldUpdated.csv")
+> 
+> #gi1213 <- read.csv("gi1213updated.csv")
+> #ili1213 <- read.csv("ili1213updated.csv")
+> #neuro1213 <- read.csv("neuro1213updated.csv")
+> #rash1213 <- read.csv("rash1213updated.csv")
+> #resp1213 <- read.csv("resp1213updated.csv")
+> 
+> ###################
+> #ADD A CCDDCATEGORY COLUMN
+> ###################
+> #summary(symOld$cat)
+> #gi1213$cat <- "gi"
+> #ili1213$cat <- "ili"
+> #neuro1213$cat <- "neuro"
+> #rash1213$cat <- "rash"
+> #resp1213$cat <- "resp"
+> 
+> ###################
+> #READ IN GIS COORDINATES FOR ZIP CODES
+> ###################
+> setwd(giswd)
+> joelatlong <- read.csv("joelatlong.csv", header=TRUE, sep=",") #This is the GIS data for zip code
+> setwd(originalwd)
+> 
+> ###################
+> #COMBINE THE 5 TRACKED SYMPTOM FILES
+> ###################
+> sym <- as.data.frame(rbind(gi, ili, neuro, rash, resp))
+> 
+> ###################
+> #FORMAT ALL DATES
+> ###################
+> mydatefunction <- function(x){as.Date(x, "%m/%d/%Y")}
+> mydatefunctionbl <- function(x){as.Date(x, "%Y-%m-%d")}
+> 
+> sym$Date <- mydatefunction(sym$Date)
+> alless$Date <- mydatefunction(alless$Date)
+> alless2$Date <- mydatefunction(alless2$Date)
+> 
+> roi$Date <- mydatefunction(roi$Date)
+> 
+> alless1213$Date <- mydatefunctionbl(alless1213$Date)
+> symOld$Date <- mydatefunctionbl(symOld$Date)
+> 
+> gi$Date <- mydatefunction(gi$Date)
+> ili$Date <- mydatefunction(ili$Date)
+> neuro$Date <- mydatefunction(neuro$Date)
+> rash$Date <- mydatefunction(rash$Date)
+> resp$Date <- mydatefunction(resp$Date)
+> 
+> ###################
+> #ASSIGN DAYS TO BE USED AS BASELINE PERIOD
+> ###################
+> bl.range <- paste(paste(seq(yesterday-380, yesterday-351, 1), collapse="|"),
++                   paste(seq(yesterday-745, yesterday-716, 1), collapse="|"), sep="|")
+> 
+> ###################
+> #CLEAN UP RACE COLUMN
+> ###################
+> 
+> black <- "BLA*|AFR*|*BLA|*AFR|Bla*|Afr*|*Bla*|*Afr"
+> white <- "WHI*|CAUC*|*WHI|*CAUC|Whi*|Cauc*|*Whi|*Cauc"
+> 
+> #symOld
+> symOld$race <- factor(ifelse(regexpr(black, symOld$Race_flat) >0, "black",
++                              ifelse(regexpr(white, symOld$Race_flat) >0, "white",
++                                     "other")))
+> 
+> #sym
+> sym$race <- factor(ifelse(regexpr(black, sym$Race_flat) >0, "black",
++                           ifelse(regexpr(white, sym$Race_flat) >0, "white",
++                                  "other")))
+> #alless
+> alless$race <- factor(ifelse(regexpr(black, alless$Race_flat) >0, "black",
++                              ifelse(regexpr(white, alless$Race_flat) >0, "white",
++                                     "other")))
+> 
+> alless1213$race <- factor(ifelse(regexpr(black, alless1213$Race_flat) >0, "black",
++                                  ifelse(regexpr(white, alless1213$Race_flat) >0, "white",
++                                         "other")))
+> 
+> #alless2
+> alless2$race <- factor(ifelse(regexpr(black, alless2$Race_flat) >0, "black",
++                               ifelse(regexpr(white, alless2$Race_flat) >0, "white",
++                                      "other")))
+> 
+> 
+> ###################
+> #COMBINE THE OLD AND NEW DATA
+> ###################
+> symOld$X <- NULL
+> alless1213$X <- NULL
+> #gi1213$X <- NULL
+> #ili1213$X <- NULL
+> #neuro1213$X <- NULL
+> #rash1213$X <- NULL
+> #resp1213$X <- NULL
+> 
+> alless1213 <- alless1213[,c("Date", "Age", "Zipcode",
++                         "MedRecNo", "Sex", "CCDD",
++                         "Region", "Time", "HalfHour", 
++                         "Hospital", "Region.of.the.Hospital",
++                         "CCDDCategory_flat", "Race_flat",
++                         "Disposition.Category",
++                         "HospitalName",
++                         "HospitalZipCode", "race")]
+> 
+> 
+> alless <- alless[,c("Date", "Age", "Zipcode",
++                             "MedRecNo", "Sex", "CCDD",
++                             "Region", "Time", "HalfHour", 
++                             "Hospital", "Region.of.the.Hospital",
++                             "CCDDCategory_flat", "Race_flat",
++                             "Disposition.Category",
++                             "HospitalName",
++                             "HospitalZipCode", "race")]
+> 
+> 
+> sym <- sym[,c("Date", "Age", "Zipcode",
++                             "MedRecNo", "Sex", "CCDD",
++                             "Region", "Time", "HalfHour", 
++                             "Hospital", "Region.of.the.Hospital",
++                             "CCDDCategory_flat", "Race_flat",
++                             "Disposition.Category",
++                             "HospitalName",
++                             "HospitalZipCode", "race", "cat")]
+> 
+> 
+> symOld <- symOld[,c("Date", "Age", "Zipcode",
++                             "MedRecNo", "Sex", "CCDD",
++                             "Region", "Time", "HalfHour", 
++                             "Hospital", "Region.of.the.Hospital",
++                             "CCDDCategory_flat", "Race_flat",
++                             "Disposition.Category",
++                             "HospitalName",
++                             "HospitalZipCode", "race", "cat")]
+> 
+> 
+> symOld <- rbind(symOld[which(symOld$Date < min(sym$Date)),], sym)
+> alless1213 <- rbind(alless1213[which(alless1213$Date < min(alless$Date)),],alless)
+> 
+> 
+> ###################
+> #WRITE HISTORICAL CSVs
+> ###################
+> setwd(historicalwd)
+> write.csv(symOld, "symOldUpdated.csv")
+> write.csv(alless1213, "alless1213updated.csv")
+
+Execution halted

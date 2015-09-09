@@ -1,0 +1,617 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[center]{titlesec}
+\usepackage{geometry}
+\usepackage{mathtools}
+
+
+
+%
+%\setlength{\columnseprule}{0.4pt}
+%\setlength{\footskip}{20pt}
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[C]{Joe Brew $\bullet$ FDOH-Alachua $\bullet$ Ben Brew}
+\fancyfoot[C]{  $\bullet$ Mosquito Surveillance Report \bullet$  }
+\renewcommand\headrulewidth{1pt}
+\renewcommand\footrulewidth{1pt}
+\pagestyle{fancy}
+
+%
+
+\setlength{\columnsep}{1.5cm}
+%\setlength{\columnseprule}{0.4pt}
+
+%\MakeOuterQuote{"}
+
+
+
+\graphicspath{ {E:/fdoh/public/mosquito/reports/2014-08-01} }
+
+%the next two lines adjust the third, centered section of the exec sum
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\begin{document}
+\SweaveOpts{concordance=TRUE, echo=FALSE}
+
+\title{\textbf{Mosquito Surveillance Report}}
+\author{Joe Brew and Ben Brew}
+
+
+\maketitle
+\tableofcontents
+
+\vspace{40mm}
+
+\begin{center}
+\includegraphics[width=2cm]{doh}
+\end{center}
+
+
+
+<<eval=TRUE, print=FALSE>>=
+###################
+# LOAD PACKAGES
+###################
+library(maps)
+library(rJava)
+library(OpenStreetMap)
+library(rgdal)
+library(maps)
+library(RColorBrewer)
+library(xtable)
+library(splines)
+
+####################
+# LOAD MOST RECENT DATA
+####################
+load("E:/fdoh/public/mosquito/reports/2014-08-01/master.RData")
+
+@
+
+
+\newgeometry{margin=5cm}
+\fancyhfoffset[E,O]{0pt}
+
+
+\vspace*{30mm}
+%------------------------------------------
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+%------------------------------------------
+\hrulefill
+
+
+
+
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.49\textwidth}
+
+
+%------------------------------------------
+\subsection*{Most Recent Collection}
+%------------------------------------------
+
+As predicted, mosquito numbers rose steadily for two weeks before declining slightly the most recent trap collection (\Sexpr{format(recent, format="%B %d, %Y")}) saw moderate levels (125 mosquitoes per trap).  
+
+\vfill
+\columnbreak
+
+
+
+%------------------------------------------
+\subsection*{Forecast}
+%------------------------------------------
+
+We forecast that mosquito levels will remain in the moderate-low range (fewer than 100 per trap through August 11th), with a 95\% confidence interval of 0 to 252 per trap.  
+
+
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+
+\vspace{2mm}
+%------------------------------------------
+\subsection*{Predictive Model Validation}
+%------------------------------------------
+
+
+\begin{changemargin}{1.5cm}{1.5cm} 
+
+At \Sexpr{master$totPer[which(master$date == max(master$date[which(is.na(master$totPer) == FALSE)]))]} specimens per trap, the most recent collection was slightly higher than our prediction of \Sexpr{round(master$predicted[which(master$date == max(master$date[which(is.na(master$totPer) == FALSE)]))], digits=0)}, but within the 90\% confidence range of 0-224.  
+
+\end{changemargin}
+
+\hrulefill
+
+
+\newgeometry{margin=2.5cm}
+\fancyhfoffset[E,O]{0pt}
+%------------------------------------------
+%\section*{Visual Overview}
+%\addcontentsline{toc}{section}{Visual Overview}
+%------------------------------------------
+
+
+%------------------------------------------
+\section*{Visual Overview}
+\addcontentsline{toc}{section}{Visual Overview}
+%------------------------------------------
+\hrulefill
+
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.49\textwidth}
+
+
+
+%------------------------------------------
+\subsection*{Time}
+\addcontentsline{toc}{subsection}{Time}
+%------------------------------------------
+The current mosquito population is lower than usual for this time of year.
+\begin{center}
+%\begin{figure}
+<<fig=TRUE, height=5, echo=FALSE>>=
+ 
+dates2014 <- seq(as.Date("2014-01-01", format="%Y-%m-%d"), as.Date("2014-12-31", format="%Y-%m-%d"), 1)
+
+plot(master$day, master$totPer, 
+     type="n",
+     xlab="Day",
+     ylab="Mosquitoes per trap",
+     xaxt="n")
+axis(side=1,
+     at=as.numeric(format(dates2014[which(format(dates2014, format="%d") == "01")], format="%j")),
+     labels=format(dates2014[which(format(dates2014, format="%d") == "01")], format="%b"))
+
+#ADD LINES
+
+
+
+for (i in unique(sort(master$year))){
+  xspline(master$day[which(master$year == i)],
+        master$tot[which(master$year == i)] / 
+          master$nTraps[which(master$year == i)],
+        border=adjustcolor(master$col[which(master$year == i)][1], alpha.f=0.8),
+        lwd=3,
+        shape=0.5)
+  
+     text(x=master$day[which(master$year == i &
+                         master$tot / master$nTraps == 
+                         max(master$tot[which(master$year == i)]/ 
+                               master$nTraps[which(master$year == i)]))],
+        y=max(master$tot[which(master$year == i)] / 
+                master$nTraps[which(master$year == i)]),
+        labels=i,
+        col=adjustcolor(master$col[which(master$year == i)], alpha.f=0.7)[1],
+        cex=0.7)
+}
+
+
+# for (i in unique(sort(master$year))){
+#   lines(master$day[which(master$year == i)],
+#         master$tot[which(master$year == i)] / 
+#           master$nTraps[which(master$year == i)],
+#         col=adjustcolor(master$col[which(master$year == i)], alpha.f=0.5),
+#         lwd=3)
+#   text(x=master$day[which(master$year == i &
+#                         master$tot / master$nTraps == 
+#                         max(master$tot[which(master$year == i)]/ 
+#                               master$nTraps[which(master$year == i)]))],
+#        y=max(master$tot[which(master$year == i)] / 
+#                master$nTraps[which(master$year == i)]),
+#        labels=i,
+#        col=adjustcolor(master$col[which(master$year == i)], alpha.f=0.7)[1],
+#        cex=0.7)
+# }
+
+# lines(master$day[which(master$year == 2014)],
+#       master$tot[which(master$year == 2014)] / 
+#         master$nTraps[which(master$year == 2014)],
+#       col=adjustcolor("darkred", alpha.f=0.5),
+#       lwd=3)
+#   text(x=master$day[which(master$year == 2014 &
+#                         master$tot / master$nTraps == 
+#                         max(master$tot[which(master$year == 2014)]/ 
+#                               master$nTraps[which(master$year == 2014)]))],
+#        y=max(master$tot[which(master$year == 2014)] / 
+#                master$nTraps[which(master$year == 2014)]),
+#        labels="2014",
+#        col=adjustcolor("darkred", alpha.f=0.7),
+#        cex=0.7)
+
+
+xspline(master$day[which(master$year == 2014)],
+      master$tot[which(master$year == 2014)] / 
+        master$nTraps[which(master$year == 2014)],
+      border=adjustcolor("darkred", alpha.f=0.5),
+      lwd=3, 
+      shape=0.5)
+
+  text(x=master$day[which(master$year == 2014 &
+                        master$tot / master$nTraps == 
+                        max(master$tot[which(master$year == 2014)]/ 
+                              master$nTraps[which(master$year == 2014)]))],
+       y=max(master$tot[which(master$year == 2014)] / 
+               master$nTraps[which(master$year == 2014)]),
+       labels="2014",
+       col=adjustcolor("darkred", alpha.f=0.7),
+       cex=0.7)
+
+abline(h=seq(0,3000,500), col=adjustcolor("black", alpha.f=0.1))
+
+@
+%\caption{Yearly comparison}
+%\end{figure}
+\end{center}
+
+
+\vfill
+\columnbreak
+%------------------------------------------
+\subsection*{Space}
+\addcontentsline{toc}{subsection}{Space}
+%------------------------------------------
+Mosquitoes were largely scattered throughout the county.
+
+<<fig=TRUE, echo=FALSE, height=5>>=
+par(mar=c(3,1,1,1))
+par(oma=c(1,1,1,1))
+plot(wcMap, raster=TRUE)
+map("county", "florida", 
+    fill=TRUE, 
+    col=c(alachuacol,countycols),
+    xlim=c(-82.75,-82), 
+    ylim=c(29.3,30.1),
+    border="white", 
+    add=T)
+
+#ADD TRAP POINTS
+points(loc$long, loc$lat,
+       pch=16,
+       col=adjustcolor("darkred", alpha.f=0.6),
+       cex=totPerSiteRecent^(1/4))
+
+legend("bottomleft",
+       pch=16,
+       col=adjustcolor("darkred", alpha.f=0.6),
+       legend=c(10, 50, 200),
+       pt.cex=c(10, 50, 200)^(1/4),
+       bty="n",
+       title="Mosquitoes per trap",
+       ncol=3,
+       cex=0.7)
+@
+
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+
+
+%\hrulefill
+\vspace{10mm}
+
+\begin{multicols}{2} 
+\setkeys{Gin}{width=0.49\textwidth}
+
+
+\vfill
+\columnbreak
+%------------------------------------------
+\subsection*{Normality}
+\addcontentsline{toc}{subsection}{Normality}
+%------------------------------------------
+The most recent collection was at levels equivalent to approximately the 50th percentile of historical (2008-13) levels.
+
+<<fig=TRUE, echo=FALSE, height=5>>=
+
+#PLOT
+myhist <- 
+  hist(master$totPer[which(master$date < "2014-01-01")]^(1), 
+     breaks=breakNum,
+     xlab="Mosquitoes per trap (2008-13)",
+     main=NA,
+     col= "grey", #histCols,
+     border=NA,
+     xaxt="n",
+     freq=FALSE,
+     ylim=c(0,.006))
+axis(side=1,
+     at=c(0, 100, 400, 1000, 1600)^(1),
+     labels=c(0, 100, 400, 1000, 1600))
+abline(v=master$totPer[which(master$date == recent)]^(1),
+       col=adjustcolor("blue", alpha.f=0.2),
+       lwd=2)
+text(x= master$totPer[which(master$date == recent)]^(1),
+     y= max(myhist$density),
+     labels = "Most recent \n collection",
+     pos=4,
+     col=adjustcolor("blue", alpha.f=0.7))
+@
+
+\vfill
+\columnbreak
+
+
+
+%------------------------------------------
+\subsection*{Disease Vectors}
+\addcontentsline{toc}{subsection}{Disease Vectors}
+%------------------------------------------
+
+Of recently trapped mosquitoes, no particular vector of any disease saw drastic rises in recent weeks.  Of note, only 11 specimens capable of carrying Chikungunya were captured in July (2 in the most recent trapping). 
+
+<<fig=TRUE, echo=FALSE, height=5>>=
+par(mar=c(4,3,1,1))
+par(oma=c(1,1,1,1))
+plot(master$date, master$wnv^(1/3), type="n",
+     yaxt="n",
+     xlab="Date",
+     ylab="Mosquitoes per trap", 
+     ylim=c(0, max(master$wnv^(1/3), na.rm=TRUE)))
+axis(side=2,
+     at=c(10, 100, 1000, 5000)^(1/3),
+     labels=c(10, 100, 1000, 5000))
+DiseaseLinesFun("red", "wnv")
+DiseaseLinesFun("darkgreen", "dengue")
+DiseaseLinesFun("darkblue", "malaria")
+DiseaseLinesFun("purple", "slev")
+DiseaseLinesFun("brown", "eeev")
+DiseaseLinesFun("darkorange", "chik")
+DiseaseLinesFun("grey", "yellow")
+
+legend(x="topleft",
+       col=adjustcolor(c("red", "darkgreen", "darkblue", "purple", "brown", "darkorange", "grey"), alpha.f=0.5),
+       lwd=3,
+       legend=c("WNV",
+                "Dengue", 
+                "Malaria",
+                "SLEV",
+                "EEEV",
+                "Chikungunya",
+                "Yellow Fever"),
+       bty="n")
+@
+
+\vfill
+\newpage
+\end{multicols}
+\setkeys{Gin}{width=1\textwidth}
+
+%------------------------------------------
+\section*{Forecast}
+\addcontentsline{toc}{section}{Forecast}
+%------------------------------------------
+\hrulefill
+\vspace{5mm}
+
+\noindent We use recursive, quadratic linear regression modelling to forecast the average number of mosquitoes per trap up to 15 days in advance.\footnote{We are actively experimenting with non-parametric approaches to improve modelling accuracy, and expect to have a modified KNN model with better results by late July.}  
+
+<<fig=TRUE, echo=FALSE, height=7>>=
+par(mar=c(4,4,2,1))
+par(oma=c(0,0,0,0))
+par(mfrow=c(2,2))
+
+#TS PREDICTED
+plot(master2014$date, master2014$predicted, 
+     type="n", ylim=c(0,400),
+     xlab="Date",
+     ylab="Mosquitoes per trap",
+      cex.axis=0.6,
+     cex.lab=0.75,
+     xaxt="n")
+title(main="Predicted mosquito numbers", cex.main=0.8)
+axis(side=1,
+     at=seq(min(master$date), max(master$date), by=7),
+     labels=format(seq(min(master$date), max(master$date), by=7), format="%b %d"),
+     las=3,
+     cex.axis=0.6)
+lines(master2014$date, master2014$totPer, col=adjustcolor("black", alpha.f=0.4),
+      lwd=3)
+lines(master2014$date[which(master2014$date >= max(master$date[which(is.na(master$totPer)==FALSE)]))], 
+      master2014$predicted[which(master2014$date >= max(master$date[which(is.na(master$totPer)==FALSE)]))],
+      col=adjustcolor("darkred", alpha.f=0.4), lwd=5)
+
+lines(master2014$date[which(master2014$date <= max(master$date[which(is.na(master$totPer)==FALSE)]))], 
+      master2014$predicted[which(master2014$date <= max(master$date[which(is.na(master$totPer)==FALSE)]))],
+      col=adjustcolor("darkred", alpha.f=0.4), lwd=1)
+
+legend(x="bottomleft",
+       col=adjustcolor(c("black", "darkred"), alpha.f=0.4),
+       legend=c("Observed", "Predicted"),
+       lty=1,
+       lwd=3,
+       bty="n",
+       cex=0.7)
+#lines(master2014$date,
+#      master2014$predicted)
+
+#HIST PREDICTED RANGE
+##############
+hist(bootPred,
+     xaxt="n",
+     border=NA,
+     freq=FALSE,
+     main=NA,
+     xlab="Estimated mosquitoes per trap",
+     xlim=c(0,1000)^(1/3),
+     cex.lab=0.75,
+     cex.axis=0.8)
+title(main="Prediction for period through July 7, 2014",
+      cex.main=0.75)
+axis(side=1,
+     at=c(0, 100, 400, 1000, 1600)^(1/3),
+     labels=c(0, 100, 400, 1000, 1600))
+lines(density(bootPred, adjust=2, na.rm=T), 
+      lwd=3,
+      col=adjustcolor("darkred", alpha.f=0.4))
+
+#############
+## HISTORICAL OBSERVERD VS PREDICTED
+
+plot(master$date, master$predicted, type="n",
+     ylim=c(0,1500),
+     xlab="Date",
+     ylab="Mosquitoes per trap",
+     cex.axis=0.6,
+     cex.lab=0.8,
+     main="Historical: observed vs. predicted",
+     cex.main=0.75)
+
+lines(master$date, master$predicted,
+      col=adjustcolor("darkred", alpha.f=0.4),
+      lwd=1)
+lines(master$date, master$totPer,
+      col=adjustcolor("black", alpha.f=0.2),
+      lwd=1)
+legend(x="topleft",
+       col=adjustcolor(c("black", "darkred"), alpha.f=0.4),
+       legend=c("Observed", "Predicted"),
+       lty=1,
+       lwd=1,
+       bty="n",
+       cex=0.7)
+
+########################
+# HISTORICAL RAINFALL
+########################
+plot(rt$date, 
+     rt$rain, 
+     type="p", 
+     col=adjustcolor("black", alpha.f=0.2), 
+     pch=16,
+     xlab="Date",
+     ylab="Daily rainfall (in.)",
+     cex.axis=0.6,
+     cex.lab=0.8)
+title(main="Rainfall", cex.main=0.75)
+@
+
+
+\newpage
+
+%------------------------------------------
+\section*{Vectors of Disease by Location}
+\addcontentsline{toc}{section}{Vectors of Disease by Location}
+%------------------------------------------
+\hrulefill
+\vspace{5mm}
+
+<<fig=TRUE, height=7>>=
+
+
+#PLOT DISEASE MAPS
+par(mfrow=c(3,2))
+par(mar=c(0,0,0,0))
+par(oma=c(0,0,0,0))
+DiseaseMapFun("wnv")
+DiseaseMapFun("slev")
+DiseaseMapFun("eeev")
+DiseaseMapFun("dengue")
+DiseaseMapFun("malaria")
+DiseaseMapFun("chik")
+@
+
+
+%------------------------------------------
+\section*{Mosquito Types}
+\addcontentsline{toc}{section}{Mosquito Types}
+%------------------------------------------
+\hrulefill
+\vspace{5mm}
+
+No particular species shows abnormal growth in recent weeks.  
+
+<<fig=TRUE, height=7>>=
+
+par(mfrow=c(5,4))
+par(mar=c(2,2,1,1))
+par(oma=c(0,0,0,0))
+for (i in unique(sort(raw.dat$code))[1:20]){
+  plot(tsCode$date,
+       tsCode[,paste0("code", i)]/ tsCode$nTraps,
+       type="l",
+       col=adjustcolor("red",alpha.f=0.4),
+       main=vec$name[which(vec$code == i)],
+       cex.axis=0.7,
+       cex.main=0.8,
+       xlab=NA,
+       ylab="Mosquitoes")
+  points(tsCode$date,
+         tsCode[,paste0("code",i)]/ tsCode$nTraps,
+         pch=16,
+         col=adjustcolor("red", alpha.f=0.4),
+         cex=0.5, 
+         cex.lab=0.5)
+}
+
+
+@
+
+
+<<fig=TRUE, height=7>>=
+
+par(mfrow=c(5,4))
+par(mar=c(2,2,1,1))
+par(oma=c(0,0,0,0))
+for (i in unique(sort(raw.dat$code))[21:33]){
+  plot(tsCode$date,
+       tsCode[,paste0("code", i)]/ tsCode$nTraps,
+       type="l",
+       col=adjustcolor("red",alpha.f=0.4),
+       main=vec$name[which(vec$code == i)],
+       cex.axis=0.7,
+       cex.main=0.8,
+       xlab=NA,
+       ylab="Mosquitoes",
+       cex.lab=0.5)
+  points(tsCode$date,
+         tsCode[,paste0("code",i)]/ tsCode$nTraps,
+         pch=16,
+         col=adjustcolor("red", alpha.f=0.4),
+         cex=0.5)
+}
+
+@
+
+
+
+
+% \begin{multicols}{2} 
+% \setkeys{Gin}{width=0.49\textwidth}
+
+% \end{multicols}
+% \setkeys{Gin}{width=1\textwidth}
+% \end{adjustwidth*}
+
+
+
+
+
+\newpage
+%------------------------------------------
+\section*{Details of Predictive Model}
+\addcontentsline{toc}{section}{Details of Predictive Model}
+%------------------------------------------
+\hrulefill
+\vspace{5mm}
+
+Historically, the model has performed well, correctly predicting the late summer spikes in 2012 and 2013.  Given the preference for accuracy at high numbers, the model intentionally includes outlying high observations, thereby weighting them. \\
+
+Having simulated more than 65,000 unique models, our best fit equation (using the sum of least squares approach) was: 
+
+\begin{center} 
+$\hat{Y} = \beta_0+ \beta_1^2 (5.6508)$ + \beta_2 (0.5938)$ 
+\end{center}
+
+\noindent where $\hat{Y}$ is the estimated mean number of mosquitoes per trap, $\beta_0$ is set to 0, $\beta_1$ is the cumulative rainfall in the period 15 to 29 days prior to the date of prediction and $\beta_2$ is the mean number of mosquitoes per trap in the most recent prior trap collection.  \\
+
+Though an original model relied only on rainfall, incorporating the most recent trap predicition saw our R-squared improve from 0.52 to 0.82.  This means that we can now explain over 80\% of the variance in mosquito populations up to 15 days ahead of time.  
+
+
+
+
+
+\end{document}

@@ -1,0 +1,96 @@
+\documentclass[twoside]{article}
+
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+\usepackage{graphicx, subfig}
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=26mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[labelfont=bf,textfont=it]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Florida Department of Health $\bullet$ Alachua County } % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+%----------------------------------------------------------------------------------------
+%  TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{\vspace{-15mm}\fontsize{20pt}{10pt}\selectfont\textbf{TITLE TITLE TITLE}} % Article title
+
+\author{
+\large
+\textsc{AUTHOR AUTHOR AUTHOR}\thanks{Florida Department of Health, Alachua County}\\[2mm] % Your name
+\vspace{-5mm}
+}
+\date{}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\SweaveOpts{concordance=TRUE, echo=FALSE}
+
+\maketitle % Insert title
+
+\thispagestyle{fancy} % All pages have headers and footers
+
+\begin{abstract}
+\noindent \lipsum[2]
+\end{abstract}
+
+<<echo=FALSE, fig=FALSE, results=hide>>=
+<<>>=
+pred <- read.csv("E:/workingdirectory/mosquito/rainAndTemp/rainAndTempDone.csv")
+@
+
+%\begin{multicols}
+%\setkeys{Gin}{width=0.49\textwidth}
+\lettrine[nindent=0em,lines=3]{B}la bla bla \lipsum[1]
+
+
+\begin{figure}[H]
+\begin{center}
+<<fig=TRUE, height=5.5, keep.source=TRUE>>=
+par(mar=c(4,4,1,1))
+par(oma=c(0,0,0,0))
+plot(1:10, 11:20)
+@
+\caption{CAPTION}
+\end{center}
+\end{figure}
+
+\lipsum[2]
+\begin{table}[H]
+\caption{IR (\%) at CFRR= 100\% (SD) [number of classes]}
+<<results=tex, keep.source=TRUE>>=
+library(xtable)
+print(xtable(as.data.frame(cbind(1:10, 11:20))))
+@
+
+\end{table}
+
+
+%\end{multicols}
+%\setkeys{Gin}{width=1\textwidth}
+\end{document}

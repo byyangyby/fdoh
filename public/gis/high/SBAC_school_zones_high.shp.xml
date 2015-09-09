@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE metadata SYSTEM "http://www.fgdc.gov/metadata/fgdc-std-001-1998.dtd">
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<pubdate>January 2004</pubdate>
+				<geoform Sync="TRUE">vector digital data</geoform>
+				<title>Alachua County High School Zones, 2008-2009</title><ftname Sync="TRUE">school_zones_high</ftname><origin>(1) School Board of Alachua County (editor)</origin><origin>(2) Alachua County Department of Growth Management, GIS Division (editor)</origin><onlink>http://maps.alachua.fl.us/gis/warehouse.php</onlink><pubinfo><pubplace>Alachua County, Fl</pubplace><publish>Alachua County Department of Growth Management, GIS Division</publish></pubinfo><onlink>http://maps.alachuacounty.us/geogm/</onlink><onlink>http://www.sbac.edu/</onlink></citeinfo>
+		</citation>
+		<descript>
+			<langdata Sync="TRUE">en</langdata><supplinf>The geometry portion of this dataset was converted from the School Board's AutoCAD format to ESRI Personal Geodatabase Feature Class.
+The original AutoCAD layer delineated zoning district boundaries by roadways only, and was stored in 2 separate files; an Urban Area Map and Rural Area Map.  Alachua County Growth Management fitted these boundaries to parcel boundaries and merged them into one seemless dataset. This dataset will be frequently updated to coincide with parcel boundary adjustments.</supplinf><abstract>This data set contains the 2008-2009 Alachua County school zones, adopted by SBAC, for High schools.</abstract><purpose>This data set contains the 2008-2009 Alachua County school zones, adopted by SBAC, for High schools.</purpose></descript>
+		<timeperd>
+			<timeinfo>
+				<sngdate>
+					<caldate>2008-2009 School Year</caldate></sngdate>
+			</timeinfo>
+			<current>ground condition</current></timeperd>
+		<status>
+			<progress>Planned</progress><update>As needed</update></status>
+		<spdom>
+			<bounding>
+				<westbc Sync="TRUE">-82.666036</westbc>
+				<eastbc Sync="TRUE">-82.036920</eastbc>
+				<northbc Sync="TRUE">29.947443</northbc>
+				<southbc Sync="TRUE">29.415433</southbc>
+			</bounding>
+			<lboundng><leftbc Sync="TRUE">2552358.819962</leftbc><rightbc Sync="TRUE">2748596.549425</rightbc><bottombc Sync="TRUE">159466.169827</bottombc><topbc Sync="TRUE">349278.419091</topbc></lboundng></spdom>
+		<keywords>
+			<place><placekey>Gainesville</placekey><placekey>Alachua County</placekey><placekey>University of Florida</placekey><placekt>None</placekt><placekey>Central Florida</placekey></place><theme><themekt>ISO 19115 Topic Categories</themekt><themekey>boundaries</themekey></theme></keywords>
+		<ptcontac>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>Alachua County Department of Growth Management, GIS Division</cntorg>
+				</cntorgp>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>10 SW 2nd Ave</address>
+					<city>Gainesville</city>
+					<state>Fl</state>
+					<postal>32601-6294</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>(352)374-5249</cntvoice>
+				<cntvoice>(352)491-2066</cntvoice>
+				<cntvoice>(352)384-3180</cntvoice>
+				<cntfax>(352)492-4405</cntfax>
+				<hours>8:30am - 5:00 p.m.</hours>
+			</cntinfo>
+		</ptcontac>
+		<accconst>No constraints.</accconst><useconst>This dataset is based on interpretation of available information and should not be considered as the only source for making decisions. Datasets with no defined source, scale, or accuracy should be considered suspect. Make sure you are familiar with the data before using it for projects, analyses, or other actions. In addition, make sure you abide by the regulatory process which the dataset supports when using it. 
+
+Scale is an important factor in data usage. Please be aware that some of our data sets are based on original data sources of different scales and a few are based on original data sources for which we have not inherited definitive scale information.
+
+For additional information regarding scale and accuracy see http://www.geoplan.ufl.edu/education.html.</useconst><native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 2; ESRI ArcCatalog 9.2.4.1420</native><natvform Sync="TRUE">Shapefile</natvform><browse><browsen>http://maps.alachua.fl.us/gis/warehouse.php</browsen><browsed>Alachua County Department of Growth Management, GIS Division, Data Warehouse</browsed></browse><browse><browsen>http://maps.alachuacounty.us/geogm/</browsen><browsed>Alachua County Department of Growth Management, GIS Division, "GeoGM Mapper"</browsed></browse><browse><browsen>http://www.sbac.edu/</browsen><browsed>School Board of Alachua County</browsed></browse></idinfo>
+	<dataqual>
+		<lineage><procstep><proccont><cntinfo><cntperp><cntper>Jason Rodel</cntper><cntorg>School Board of Alachua County</cntorg></cntperp><cntpos>AutoCAD Technician</cntpos><cntvoice>955-7400</cntvoice><cntemail>rodelj@sbac.edu</cntemail></cntinfo></proccont><procdesc>Created and maintained in AutoCAD dwg format</procdesc><procsv>AutoCAD 14</procsv><procdate>Unknown</procdate><srcused>SBAC</srcused></procstep><srcinfo><srccite><citeinfo><title>Alachua County School Board</title><origin>Martha Dean, Zoning Specialist, (ed.)</origin><origin>Jason Rodel, AutoCAD technician, (ed.)</origin><pubdate>Unknown</pubdate></citeinfo></srccite><typesrc>computer program</typesrc><srctime><srccurr>publication date</srccurr></srctime><srccitea>SBAC</srccitea><srccontr>Used in the conversion to GIS format</srccontr></srcinfo><srcinfo><srccite><citeinfo><origin>Robert Jensen, GIS Analyst, (ed.)</origin><pubinfo><pubplace>Alachua County, FL</pubplace><publish>Alachua County, GIS Division</publish></pubinfo><title>Alachua County GIS Division</title></citeinfo></srccite><typesrc>computer program</typesrc><srccitea>Alachua County GIS Division</srccitea></srcinfo><procstep><procdesc>Original AutoCAD drawing format files (dwg) converted to shapefile format (shp).</procdesc><srcused>Alachua County, GIS Division</srcused><proccont><cntinfo><cntperp><cntper>Robert Jensen</cntper><cntorg>Alachua County, GIS Division</cntorg></cntperp><cntpos>GIS Analyst</cntpos><cntemail>rtj@alachua.fl.us</cntemail></cntinfo></proccont></procstep><procstep><procdesc>Affine transformation to bring into current coordinate system (State Plane Projection.)</procdesc><srcused>Alachua County, GIS Division</srcused></procstep><procstep><procdesc>Alignment of features to parcel boundaries.</procdesc><srcused>Alachua County, GIS Division</srcused></procstep><procstep><procdesc>Merged and aligned rural and urban datasets into one dataset.</procdesc><srcused>Alachua County, GIS Division</srcused></procstep><procstep><procdesc>Adjusted Boundaries to 2008-2009 adopted school zoning districts</procdesc><srcused>Alachua County, GIS Division</srcused></procstep></lineage></dataqual>
+	<spdoinfo>
+		<direct Sync="TRUE">Vector</direct>
+		<ptvctinf>
+			<sdtsterm Name="school_zones_high">
+				<sdtstype Sync="TRUE">G-polygon</sdtstype>
+				<ptvctcnt Sync="TRUE">6</ptvctcnt>
+			</sdtsterm>
+			<esriterm Name="school_zones_high"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom Sync="TRUE">Polygon</efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">6</efeacnt><spindex Sync="TRUE">FALSE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm></ptvctinf>
+	</spdoinfo>
+	<spref>
+		<horizsys>
+			<geodetic>
+				<horizdn Sync="TRUE">North American Datum of 1983</horizdn>
+				<ellips Sync="TRUE">Geodetic Reference System 80</ellips>
+				<semiaxis Sync="TRUE">6378137.000000</semiaxis><denflat Sync="TRUE">298.257222</denflat></geodetic>
+			<cordsysn><geogcsn Sync="TRUE">GCS_North_American_1983</geogcsn><projcsn Sync="TRUE">NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet</projcsn></cordsysn><planar><planci><plance Sync="TRUE">coordinate pair</plance><plandu Sync="TRUE">survey feet</plandu><coordrep><absres Sync="TRUE">0.000000</absres><ordres Sync="TRUE">0.000000</ordres></coordrep></planci><mapproj><mapprojn Sync="TRUE">Lambert Conformal Conic</mapprojn><lambertc><stdparll Sync="TRUE">29.583333</stdparll><stdparll Sync="TRUE">30.750000</stdparll><longcm Sync="TRUE">-84.500000</longcm><latprjo Sync="TRUE">29.000000</latprjo><feast Sync="TRUE">1968500.000000</feast><fnorth Sync="TRUE">0.000000</fnorth></lambertc></mapproj></planar></horizsys>
+	</spref>
+	<eainfo>
+		<detailed Name="school_zones_high">
+			<enttyp>
+				<enttypl Sync="TRUE">school_zones_high</enttypl><enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">6</enttypc></enttyp>
+			<attr><attrlabl Sync="TRUE">FACILITY</attrlabl><attalias Sync="TRUE">FACILITY</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>The full name of the school facility</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv/></attr><attr><attrlabl Sync="TRUE">FUNCTION</attrlabl><attalias Sync="TRUE">FUNCTION</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><attrdef>The function of the school facility</attrdef><attrdefs>School Board of Alachua County</attrdefs></attr><attr><attrlabl Sync="TRUE">ADDRESS</attrlabl><attalias Sync="TRUE">ADDRESS</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><attrdef>The address of the school facility</attrdef><attrdefs>School Board of Alachua County</attrdefs></attr><attr><attrlabl Sync="TRUE">JURIS</attrlabl><attalias Sync="TRUE">JURIS</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">60</attwidth><attrdef>The city where the school facility resides</attrdef></attr><attr><attrlabl Sync="TRUE">ZIP</attrlabl><attalias Sync="TRUE">ZIP</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">35</attwidth><attrdef>Zip code</attrdef></attr><attr><attrlabl Sync="TRUE">GRADES</attrlabl><attalias Sync="TRUE">GRADES</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">35</attwidth><attrdef>The Grade levels of the school</attrdef><attrdefs>School Board of Alachua County</attrdefs></attr><attr><attrlabl>Shape</attrlabl><attrdef>Feature Geometry</attrdef><attrdefs>ESRI</attrdefs><attrdomv><udom>Sequential unique whole numbers that are automatically generated.</udom></attrdomv><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">16</attwidth></attr><attr><attrlabl Sync="TRUE">CAPACITY</attrlabl><attalias Sync="TRUE">CAPACITY</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">9</attwidth><attrdef>The Capacity limit of the school</attrdef><attrdefs>School Board of Alachua County</attrdefs><attrdomv/></attr><attr><attrlabl Sync="TRUE">ENROLLMENT</attrlabl><attalias Sync="TRUE">ENROLLMENT</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">8</attwidth><attrdefs>School Board of Alachua County</attrdefs><attrdef>The enrollment of the school (beginning in the 2004-2005 school year).</attrdef></attr><attr><attrlabl Sync="TRUE">FID</attrlabl><attalias Sync="TRUE">FID</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">16</attwidth><attrdef Sync="TRUE">Internal feature number.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">PHONE</attrlabl><attalias Sync="TRUE">PHONE</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">4</attwidth><attrdef>The school office phone number.</attrdef><attrdefs>School Board of Alachua County</attrdefs></attr><attr><attrlabl Sync="TRUE">CAPLEVEL</attrlabl><attalias Sync="TRUE">CAPLEVEL</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">4</attwidth><attrdefs>Derived from capacity and enrollment. School Board of Alachua County.</attrdefs><attrdef>Whether the enrollment is at, under, or above capacity (beginning in the 2004-2005 school year).</attrdef><attrdomv><edom><edomv>AT CAPACITY</edomv></edom><edom><edomv>CAPACITY NOT REPORTED</edomv></edom><edom><edomv>OVER CAPACITY</edomv></edom><edom><edomv>UNDER CAPACITY</edomv></edom></attrdomv></attr><attr><attrlabl Sync="TRUE">WEBSITE</attrlabl><attalias Sync="TRUE">WEBSITE</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">4</attwidth><attrdef>The website of the school.</attrdef><attrdefs>School Board of Alachua County</attrdefs></attr><attr><attrlabl Sync="TRUE">SCHOOLCODE</attrlabl><attalias Sync="TRUE">SCHOOLCODE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><attrdef>Code used by the Florida Department of Education for school identification</attrdef><attrdefs>Florida Dept of Education</attrdefs></attr><attr><attrlabl Sync="TRUE">PERCAPACIT</attrlabl><attalias Sync="TRUE">PERCAPACIT</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">19</attwidth><attrdef>Percent Capacity of school.  Calculated by dividing enrollment by Capacity.</attrdef><attrdefs>School Board of Alachua County</attrdefs><atnumdec Sync="TRUE">11</atnumdec></attr><attr><attrlabl Sync="TRUE">AVAIL</attrlabl><attalias Sync="TRUE">AVAIL</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">40</attwidth><attrdef>Availability of student seating. Difference in enrollment and capacity.</attrdef><attrdefs>School Board of Alachua County</attrdefs></attr><attr><attrlabl Sync="TRUE">IMGPATH</attrlabl><attalias Sync="TRUE">IMGPATH</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">100</attwidth><attrdef>The directory path to the school image file. Use for Hyperlinking</attrdef></attr><attr><attrlabl Sync="TRUE">DESCRIP</attrlabl><attalias Sync="TRUE">DESCRIP</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth><attrdef>Short Description of the school, school's history, or school's mission statement.</attrdef><attrdefs>The school's Website</attrdefs></attr><attr><attrlabl Sync="TRUE">DESPATH</attrlabl><attalias Sync="TRUE">DESPATH</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">100</attwidth><attrdef>The directory path to the school description text file which describes the school, school's history, or school's mission statement. Use for Hyperlinking</attrdef><attrdefs>The school's website</attrdefs></attr></detailed>
+	</eainfo>
+	<distinfo>
+		<stdorder>
+			<digform>
+				<digtinfo>
+					<transize>0.117</transize>
+					<dssize Sync="TRUE">0.067</dssize></digtinfo>
+			</digform>
+		</stdorder>
+		<resdesc Sync="TRUE">Downloadable Data</resdesc></distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20100126</metd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>Alachua County Department of Growth Management, GIS Division</cntorg>
+					<cntper>Robert Jensen</cntper></cntorgp>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<city>Gainesville</city>
+					<state>FL</state>
+					<postal>32601-6294</postal>
+					<address>10 SW 2nd Ave</address><country>USA</country></cntaddr>
+				<cntvoice>(352) 374-5249</cntvoice>
+				<cntvoice>(352) 491-2066</cntvoice>
+				<cntvoice>(352) 384-3180</cntvoice>
+				<cntfax>(352)491-4405</cntfax>
+				<cntemail>rtj@alachuacounty.us</cntemail>
+				<hours>8:30 a.m. - 5:00 p.m.</hours>
+				<cntinst>prefer email</cntinst>
+				<cntpos>GIS Analyst</cntpos></cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<mettc Sync="TRUE">local time</mettc>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<langmeta Sync="TRUE">en</langmeta><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<Esri><ModDate>20100126</ModDate><ModTime>09515300</ModTime><CreaDate>20061002</CreaDate><CreaTime>15083300</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20080213</SyncDate><SyncTime>09092300</SyncTime><PublishStatus>Published</PublishStatus><MetaID>{8C315B1C-C1DA-4930-A6D3-195D469C37FA}</MetaID><DataProperties><lineage><Process ToolSource="C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Data Management Tools.tbx\DeleteField" Date="20100824" Time="090224">DeleteField M:\Data\Shapefiles\SBAC_school_zones_high.shp GRADES;PHONE;CAPACITY;CAPLEVEL;PERCAP;ENROLLMENT;AVAIL;SES;CHOICE;MAGNETPROG;WEBSITE;IMGFILE;IMGPATH;DESCRIP;DESFILE;DESPATH M:\Data\Shapefiles\SBAC_school_zones_high.shp</Process></lineage></DataProperties></Esri><dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 2; ESRI ArcCatalog 9.2.4.1420</envirDesc><dataLang><languageCode Sync="TRUE" value="en"></languageCode></dataLang><idCitation><resTitle Sync="TRUE">school_zones_high</resTitle><presForm><PresFormCd Sync="TRUE" value="005"></PresFormCd></presForm></idCitation><spatRpType><SpatRepTypCd Sync="TRUE" value="001"></SpatRepTypCd></spatRpType><dataExt><geoEle><GeoBndBox esriExtentType="native"><westBL Sync="TRUE">2552358.819962</westBL><eastBL Sync="TRUE">2748596.549425</eastBL><northBL Sync="TRUE">349278.419091</northBL><southBL Sync="TRUE">159466.169827</southBL><exTypeCode Sync="TRUE">1</exTypeCode></GeoBndBox></geoEle></dataExt><geoBox esriExtentType="decdegrees"><westBL Sync="TRUE">-82.666036</westBL><eastBL Sync="TRUE">-82.03692</eastBL><northBL Sync="TRUE">29.947443</northBL><southBL Sync="TRUE">29.415433</southBL><exTypeCode Sync="TRUE">1</exTypeCode></geoBox></dataIdInfo><mdLang><languageCode Sync="TRUE" value="en"></languageCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc><linkage Sync="TRUE">file://\\alachua\acdfs\Growth_GIS\Data\Other_Departments\SBAC\school_zones_high.shp</linkage><protocol Sync="TRUE">Local Area Network</protocol></onLineSrc><transSize Sync="TRUE">0.067</transSize></distorTran><distorFormat><formatName Sync="TRUE">Shapefile</formatName></distorFormat></distributor></distInfo><refSysInfo><RefSystem><refSysID><identCode Sync="TRUE">NAD_1983_StatePlane_Florida_North_FIPS_0903_Feet</identCode></refSysID></RefSystem></refSysInfo><spatRepInfo><VectSpatRep><topLvl><TopoLevCd Sync="TRUE" value="001"></TopoLevCd></topLvl><geometObjs Name="school_zones_high"><geoObjTyp><GeoObjTypCd Sync="TRUE" value="001"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">6</geoObjCnt></geometObjs></VectSpatRep></spatRepInfo><mdDateSt Sync="TRUE">20100126</mdDateSt><mdFileID Sync="TRUE">{AFA18600-0D86-43D0-899E-1AAEB728BAF7}</mdFileID></metadata>
